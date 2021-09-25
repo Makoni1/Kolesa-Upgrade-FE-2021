@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="/src/css/style.css">
   </head>
   <body>
-    <div class="container">
+    <div class="modal">
       <button class="closs-button">
         <img src="src/images/cross.svg">
       </button>
@@ -23,32 +23,63 @@
           <img src="src/images/type1.png">
           <img class="selected" src="src/images/type2.png">
           <img src="src/images/type3.png">
+          <img src="src/images/type3.png">
+          <img src="src/images/type3.png">
+          <img src="src/images/type3.png">
+          <img src="src/images/type3.png">
+          <img src="src/images/type3.png">
+          <img src="src/images/type3.png">
+          <img src="src/images/type3.png">
+          <img src="src/images/type3.png">
+          <img src="src/images/type3.png">
+          <img src="src/images/type3.png">
+          <img src="src/images/type3.png">
         </span>
       </div>
       <div class="description">
           <h3 class="title">Футболка "Эволюционируй или сдохни"</h3>
-          <div class="price">
-            100 баллов
-          </div>
-          <div class="button">
-            <button
-              class="button"
-              type="button"
-            >
-              Заказать
-            </button>
+          <div class="flex">
+            <div class="purchase">
+              <div class="price">
+                100 баллов
+              </div>
+              <div class="button">
+                  <button
+                    class="button"
+                    type="button"
+                  >
+                    Заказать
+                  </button>
+              </div>
+            </div>
+            <div class="balance">
+              <div class="content">
+                <p>Твой баланс:</p>
+                <p>3 945 баллов</p>
+              </div>
+              <div class="bag">
+                <img class="bag" src="src/images/bag.svg">
+              </div>
+            </div>
           </div>
           <div class="color">
             Цвета:
             <form class="boxed">
-              <input type="radio" id="bl" name="skills" value="blue">
-              <label for="bl">Cиний</label>
-            
-              <input type="radio" id="bei" name="skills" value="beige">
-              <label for="bei">Бежевый </label>
+              <div class="color-item">
+                <input type="radio" id="blue" name="skills" value="blue">
+                <label for="blue">Cиний</label>
+              </div>
               
-              <input type="radio" id="grw" name="skills" value="grey">
-              <label for="grw">Серый </label>
+              <div class="color-item">
+                <input type="radio" id="beige" name="skills" value="beige">
+                <label class="label-beige" for="beige">Бежевый </label>
+              </div>
+            
+              <div class="color-item">
+                <input type="radio" id="grey" name="skills" value="grey">
+                <label class="label-grey" for="grey">Серый </label>
+              </div>
+          
             </form>   
           </div>
           <div class="hint">
@@ -64,13 +95,29 @@
               <label for="L">L </label>
             </form>
           </div>
-          <p>Детали:</p>
-          <p>Брендированная толстовка от Qazaq Republic. Материал: Хлопок 80%, Вискоза 20%</p>
-          <p>Как выбрать размер:</p>
-          <p>Написать дяде Рику для уточнения.</p>
+          <p class="bold">Детали:</p>
+          <p class="normal">Брендированная толстовка от Qazaq Republic. Материал: Хлопок 80%, Вискоза 20%</p>
+          <p class="bold">Как выбрать размер:</p>
+          <p class="normal">Написать дяде Рику для уточнения.</p>
       </div>
-    </div>
+    </div> 
     <div id="app"></div>
     <!-- <script type="module" src="/src/js/main.js"></script> -->
   </body>
 </html>
+
+<div class="colors__items">
+  <div class="colors__item">
+      <input type="radio" class="input__item" id="radio-1" name="colors">
+      <label for="radio-1" class="input__label label-blue">Синий</label>
+      <!-- <p class="input__text">Синий</p> -->
+  </div>
+  <div class="colors__item">
+      <input type="radio" class="input__item" id="radio-2" name="colors">
+      <label for="radio-2" class="input__label label-beige">Бежевый</label>
+  </div>
+  <div class="colors__item">
+      <input type="radio" class="input__item" id="radio-3" name="colors">
+      <label for="radio-3" class="input__label label-grey">Серый</label>
+  </div>
+</div>
