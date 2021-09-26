@@ -3,121 +3,94 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/src/assets/favicon.svg" />
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Kolesa Upgrade - Верстка 1</title>
     <link rel="stylesheet" href="/src/css/style.css">
   </head>
   <body>
-    <div class="modal">
-      <button class="closs-button">
-        <img src="src/images/cross.svg">
-      </button>
-      <div class="image">
-        <img 
-          src="src/images/product.jpg" 
-          alt="футболка"
-          width="330"
-          height="330"
-        >
-        <span class="imgType">
-          <img src="src/images/type1.png">
-          <img class="selected" src="src/images/type2.png">
-          <img src="src/images/type3.png">
-          <img src="src/images/type3.png">
-          <img src="src/images/type3.png">
-          <img src="src/images/type3.png">
-          <img src="src/images/type3.png">
-          <img src="src/images/type3.png">
-          <img src="src/images/type3.png">
-          <img src="src/images/type3.png">
-          <img src="src/images/type3.png">
-          <img src="src/images/type3.png">
-          <img src="src/images/type3.png">
-          <img src="src/images/type3.png">
-        </span>
-      </div>
-      <div class="description">
-          <h3 class="title">Футболка "Эволюционируй или сдохни"</h3>
-          <div class="flex">
-            <div class="purchase">
-              <div class="price">
-                100 баллов
+    <div class="container">
+      <div class="modal">
+        <div class="modal-close">
+          <span></span>
+          <span></span>
+        </div>
+        <div class="modal-image">
+          <div class="modal-image-main">
+            <img src="src/images/product.jpg" alt="футболка" width="330" height="330">
+          </div>
+          <div class="modal-image-small">
+            <img src="src/images/type1.png">
+            <img class="active" src="src/images/type2.png">
+            <img src="src/images/type3.png">
+          </div>
+        </div>
+        <div class="description">
+            <h3 class="title">Футболка "Эволюционируй или сдохни"</h3>
+            <div class="flex">
+              <div class="purchase">
+                <div class="price">
+                  100 баллов
+                </div>
+                <div class="button">
+                    <button
+                      class="button"
+                      type="button"
+                    >
+                      Заказать
+                    </button>
+                </div>
               </div>
-              <div class="button">
-                  <button
-                    class="button"
-                    type="button"
-                  >
-                    Заказать
-                  </button>
+              <div class="balance">
+                <div class="content">
+                  <p>Твой баланс:</p>
+                  <p>3 945 баллов</p>
+                </div>
+                <div class="bag">
+                  <img class="bag" src="src/images/bag.svg">
+                </div>
               </div>
             </div>
-            <div class="balance">
-              <div class="content">
-                <p>Твой баланс:</p>
-                <p>3 945 баллов</p>
+            <div class="modal-colors">
+              <div class="colors-title">
+                  Цвета:
               </div>
-              <div class="bag">
-                <img class="bag" src="src/images/bag.svg">
+              <div class="color">
+                  <div class="color-item">
+                      <input id="blue" type="radio" name="r">
+                      <label for="blue">Синий</label>
+                  </div>
+                  <div class="color-item">
+                      <input id="beige" type="radio" name="r">
+                      <label id="color-2" for="beige">Бежевый</label>
+                  </div>
+                  <div class="color-item">
+                      <input id="grey" type="radio" name="r">
+                      <label id="color-3" for="grey">Серый</label>
+                  </div>
               </div>
+          </div>
+            <div class="hint">
+              Размер:
+              <form class="boxed2">
+                <input type="radio" id="S" name="size" value="S">
+                <label for="S">S</label>
+              
+                <input type="radio" id="M" name="size" value="M">
+                <label for="M">M</label>
+                
+                <input type="radio" id="L" name="size" value="L">
+                <label for="L">L</label>
+              </form>
             </div>
-          </div>
-          <div class="color">
-            Цвета:
-            <form class="boxed">
-              <div class="color-item">
-                <input type="radio" id="blue" name="skills" value="blue">
-                <label for="blue">Cиний</label>
-              </div>
-              
-              <div class="color-item">
-                <input type="radio" id="beige" name="skills" value="beige">
-                <label class="label-beige" for="beige">Бежевый </label>
-              </div>
-            
-              <div class="color-item">
-                <input type="radio" id="grey" name="skills" value="grey">
-                <label class="label-grey" for="grey">Серый </label>
-              </div>
-          
-            </form>   
-          </div>
-          <div class="hint">
-            Размер:
-            <form class="boxed2">
-              <input type="radio" id="S" name="skills" value="S">
-              <label for="S">S</label>
-            
-              <input type="radio" id="M" name="skills" value="M">
-              <label for="M">M </label>
-              
-              <input type="radio" id="L" name="skills" value="L">
-              <label for="L">L </label>
-            </form>
-          </div>
-          <p class="bold">Детали:</p>
-          <p class="normal">Брендированная толстовка от Qazaq Republic. Материал: Хлопок 80%, Вискоза 20%</p>
-          <p class="bold">Как выбрать размер:</p>
-          <p class="normal">Написать дяде Рику для уточнения.</p>
-      </div>
-    </div> 
+            <p class="bold">Детали:</p>
+            <p class="normal">Брендированная толстовка от Qazaq Republic. Материал: Хлопок 80%, Вискоза 20%</p>
+            <p class="bold">Как выбрать размер:</p>
+            <p class="normal">Написать дяде Рику для уточнения.</p>
+        </div>
+      </div> 
+    </div>
     <div id="app"></div>
     <!-- <script type="module" src="/src/js/main.js"></script> -->
   </body>
 </html>
-
-<div class="colors__items">
-  <div class="colors__item">
-      <input type="radio" class="input__item" id="radio-1" name="colors">
-      <label for="radio-1" class="input__label label-blue">Синий</label>
-      <!-- <p class="input__text">Синий</p> -->
-  </div>
-  <div class="colors__item">
-      <input type="radio" class="input__item" id="radio-2" name="colors">
-      <label for="radio-2" class="input__label label-beige">Бежевый</label>
-  </div>
-  <div class="colors__item">
-      <input type="radio" class="input__item" id="radio-3" name="colors">
-      <label for="radio-3" class="input__label label-grey">Серый</label>
-  </div>
-</div>
