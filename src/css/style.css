@@ -166,6 +166,7 @@ body {
     line-height: 24px;
     color: #1c1819;
     margin-top: 24px;
+    margin-bottom: 8px;
 }
 
 .color {
@@ -217,15 +218,18 @@ body {
     border: none;
 }
 
-.hint {
-    margin-top: 24px;
-    margin-bottom: 8px;
+.modal-size {
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
     line-height: 24px;
     color: #1c1819;
     flex-wrap: wrap;
+}
+
+.modal-size-title {
+    margin-top: 24px;
+    margin-bottom: 8px;
 }
 
 .boxed2 label {
