@@ -174,6 +174,8 @@ button {
 
 .color-item input {
     display: none;
+    -webkit-appearance: none;
+    appearance: none;
 }
 
 .color-item label {
@@ -209,7 +211,7 @@ button {
 .color-item input:checked + label {
     background: #d6ecfb;
     color: #1c1819;
-    border: none;
+    border: 1px solid #d6ecfb;
 }
 
 .modal-size {
@@ -251,7 +253,7 @@ button {
 .boxed2 input:checked + label {
     background: #d6ecfb;
     color: #1c1819;
-    border: none;
+    border: 1px solid #d6ecfb;
 }
 
 .modal-details {
