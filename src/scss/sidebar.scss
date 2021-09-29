@@ -1,3 +1,39 @@
 .main {
+    max-width: 1368px;
+    margin: 0 auto;
     padding: 0 89px 192px 32px;
+}
+
+.sidebar__wrapper {
+    display: flex;
+}
+
+.main .menu__item {
+    margin-bottom: 26px;
+}
+
+.menu__list {
+    position: relative;
+}
+
+.main .list-bold {
+    font-weight: 600;
+}
+
+.menu__active {
+    font-weight: 600;
+}
+
+.menu__active::before {
+    content: '';
+    position: absolute;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    left: -13px;
+    top: 112px;
+    width: 4px;
+    height: 36px;
+    border-radius: 10px;
+    background-color: #2a81dd;
 }
