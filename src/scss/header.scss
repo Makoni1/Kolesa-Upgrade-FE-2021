@@ -1,0 +1,86 @@
+.header__wrapper {
+    max-width: 1368px;
+    margin: 0 auto;
+    padding: 32px 40px 26px 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header .header__logo {
+    margin-right: 66px;
+}
+
+.header__user {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header__search {
+    position: relative;
+}
+
+.header__search .search__btn {
+    position: absolute;
+    width: 17px;
+    height: 17px;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 20px;
+    border: none;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.header .search__input {
+    padding: 8px 8px 8px 56px;
+    width: 308px;
+    height: 44px;
+    border: 0;
+    border-radius: 8px;
+    background: #f2f2f3;
+}
+
+.header .header__user {
+    background: #fff;
+}
+
+.header .header__user-image {
+    width: 44px;
+    height: 44px;
+    max-width: 100%;
+}
+
+.header .header__user-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.header .header__user-descr {
+    margin-left: 16px;
+}
+
+.header .user__name {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 24px;
+    color: #2a81dd;
+}
+
+.header .user__scores {
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 20px;
+    color: #1c1819;
+}

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/src/assets/favicon.svg" />
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kolesa Upgrade - Верстка 1</title>
+    <link rel="stylesheet" href="/src/css/modal.css">
+  </head>
+  <body>
+  <div id="app">
+    <div class="container">
+      <div class="modal">
+        <button class="modal-close-btn"></button>
+        <div class="modal-image">
+          <div class="modal-image-main">
+            <img src="src/images/product.jpg" alt="футболка" width="330" height="330">
+          </div>
+          <div class="modal-image-small">
+            <img src="src/images/type1.png">
+            <img class="active" src="src/images/type2.png">
+            <img src="src/images/type3.png">
+          </div>
+        </div>
+        <div class="description">
+            <h3 class="title">Футболка "Эволюционируй или сдохни"</h3>
+            <div class="flex">
+              <div class="purchase">
+                <div class="price">
+                  100 баллов
+                </div>
+                <button class="button-order" type="button">
+                  Заказать
+                </button>
+              </div>
+              <div class="balance">
+                <div class="content">
+                  <p>Твой баланс:</p>
+                  <p>3 945 баллов</p>
+                </div>
+                <div class="bag">
+                  <img class="bag" src="src/images/bag.svg">
+                </div>
+              </div>
+            </div>
+            <div class="modal-colors">
+              <div class="colors-title">
+                  Цвета:
+              </div>
+              <div class="color">
+                  <div class="color-item">
+                      <input id="blue" type="radio" name="r">
+                      <label for="blue">Синий</label>
+                  </div>
+                  <div class="color-item">
+                      <input id="beige" type="radio" name="r">
+                      <label id="color-2" for="beige">Бежевый</label>
+                  </div>
+                  <div class="color-item">
+                      <input id="grey" type="radio" name="r">
+                      <label id="color-3" for="grey">Серый</label>
+                  </div>
+              </div>
+          </div>
+            <div class="modal-size">
+              <div class="modal-size-title">
+                Размер:
+              </div>
+              <form class="boxed2">
+                <input type="radio" id="S" name="size" value="S">
+                <label for="S">S</label>
+              
+                <input type="radio" id="M" name="size" value="M">
+                <label for="M">M</label>
+                
+                <input type="radio" id="L" name="size" value="L">
+                <label for="L">L</label>
+              </form>
+            </div>
+            <div class="modal-details">
+              Детали:
+            </div>
+            <div class="modal-details-description">
+              Брендированная толстовка от Qazaq Republic. Материал: Хлопок 80%, Вискоза 20%
+            </div>
+            <div class="modal-deatils2">
+              Как выбрать размер:
+            </div>
+            <div class="modal-details-description2">
+              Написать дяде Рику для уточнения.
+            </div>
+        </div>
+      </div> 
+    </div>
+  </div>
+  </body>
+</html>
