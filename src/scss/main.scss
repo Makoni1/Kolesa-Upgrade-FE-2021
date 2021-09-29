@@ -20,9 +20,9 @@
     max-width: 330px;
     width: 100%;
     padding: 8px 24px;
-    border-radius: 16px;
     display: flex;
     align-items: center;
+    border-radius: 16px;
     font-size: 20px;
     font-weight: 600;
     border: 1px solid #fff;
@@ -49,11 +49,11 @@
     background: transparent;
 }
 
-.questions__item_present {
+.questions__item_gift {
     background: #e9f2fb;
 }
 
-.questions__item_present:hover {
+.questions__item_gift:hover {
     border: 1px solid #e9f2fb;
     background: transparent;
 }
@@ -65,16 +65,16 @@
 
 .tabs__item {
     padding: 8px 22px;
+    margin: 0 8px 16px 0;
     border-radius: 8px;
     border: 1px solid rgba(28, 24, 25, 0.1);
-    margin: 0 8px 16px 0;
     font-size: 14px;
     color: #2a81dd;
 }
 
 .tabs__item.active {
-    background: #d6ecfb;
     border: 1px solid #d6ecfb;
+    background: #d6ecfb;
     color: #1c1819;
 }
 
@@ -100,18 +100,18 @@
     background: url('../images/gift-icon.png') no-repeat center center;
 }
 
-.single_class_wrapper {
+.products__wrapper {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
 }
 
-.single_card {
+.product__card {
     width: 330px;
     cursor: pointer;
     transition: 0.22s;
 }
 
-.single_card_info {
+.product__card-info {
     padding: 0 24px 16px 16px;
 }
 
@@ -163,15 +163,31 @@
     transition: 0.22s;
 }
 
-.single_card:hover .balance_number {
+.product__card:hover .balance_number {
     color: #f33;
 }
 
-.single_card:hover .order_btn {
+.product__card:hover .order_btn {
     opacity: 1;
 }
 
-.single_card:hover {
+.product__card:hover {
     box-shadow: 0 2px 10px rgba(28, 24, 25, 0.1);
     border-radius: 8px;
+}
+
+.card__image {
+    position: relative;
+}
+
+.products__label {
+    position: absolute;
+    left: 16px;
+    bottom: 16px;
+    padding: 0 4px;
+    background: #64bd38;
+    border-radius: 4px;
+    text-transform: uppercase;
+    color: #fff;
+    font-size: 13px;
 }
