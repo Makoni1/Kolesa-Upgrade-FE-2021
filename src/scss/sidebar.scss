@@ -1,14 +1,15 @@
-.main {
+.container {
     max-width: 1368px;
     margin: 0 auto;
-    padding: 0 89px 192px 32px;
+    padding: 0 32px 192px 32px;
+    display: flex;
 }
 
 .sidebar__wrapper {
     display: flex;
 }
 
-.main .menu__item {
+.container .menu__item {
     margin-bottom: 26px;
 }
 
@@ -16,7 +17,7 @@
     position: relative;
 }
 
-.main .list-bold {
+.container .list-bold {
     font-weight: 600;
 }
 

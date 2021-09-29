@@ -11,6 +11,7 @@ body {
     min-height: 100vh;
     text-rendering: optimizeSpeed;
     line-height: 1.5;
+    font-size: 14px;
 }
 
 h1,
@@ -18,7 +19,10 @@ h2,
 h3,
 h4,
 h5,
-h6,
+h6 {
+    font-weight: 600;
+}
+
 p,
 ul[class],
 ol[class],
@@ -51,10 +55,12 @@ select {
 button {
     cursor: pointer;
     color: inherit;
+    text-decoration: none;
+    background: transparent;
 }
 
 #app {
-    font-family: 'Open Sans', Arial, Helvetica, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    min-height: 100vh;
 }

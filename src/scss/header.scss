@@ -11,10 +11,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
-
-.header .header__logo {
-    margin-right: 66px;
+    gap: 43px;
 }
 
 .header__user {
@@ -43,7 +40,7 @@
 }
 
 .header .search__input {
-    padding: 8px 8px 8px 56px;
+    padding: 8px 26px 8px 56px;
     width: 308px;
     height: 44px;
     border: 0;
