@@ -7,7 +7,6 @@
 body {
     font-family: Open sans, sans-serif;
     position: relative;
-    margin: 0;
     min-height: 100vh;
     text-rendering: optimizeSpeed;
     line-height: 1.5;
@@ -63,4 +62,7 @@ button {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     min-height: 100vh;
+    display: grid;
+    grid-template: minmax(104px, auto) 1fr minmax(100px, auto) / 1fr;
+    grid-template-areas: 'header' 'main' 'footer';
 }
