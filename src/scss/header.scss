@@ -21,6 +21,10 @@
     background-color: #fff;
 }
 
+.header__user:hover {
+    transform: scale(1.2, 1.2);
+}
+
 .header__search {
     position: relative;
 }
