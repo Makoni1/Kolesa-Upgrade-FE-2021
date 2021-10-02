@@ -1,0 +1,54 @@
+.sidebar__wrapper {
+    display: flex;
+    align-items: center;
+    max-width: 280px;
+    width: 100%;
+}
+
+.main .menu__item {
+    margin-bottom: 26px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.menu__item {
+    position: relative;
+}
+
+.list__link {
+    font-size: 16px;
+    color: #1c1819;
+    transition: color ease 0.5s;
+}
+
+.list__link span {
+    font-weight: 600;
+}
+
+.list__link:hover {
+    color: rgb(26, 128, 223);
+}
+
+.list__link.active {
+    font-weight: 600;
+}
+
+.active::before {
+    content: '';
+    position: absolute;
+    display: block;
+    left: -13px;
+    top: -7px;
+    width: 4px;
+    height: 36px;
+    border-radius: 10px;
+    background-color: #2a81dd;
+    transition: ease 0.5s;
+    opacity: 1;
+}
+
+.list__link.active::before {
+    opacity: 1;
+}
