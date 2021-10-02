@@ -3,8 +3,8 @@
     color: #fff;
     display: grid;
     grid-area: footer;
-    grid-template: 1fr / 1fr 915px minmax(auto, 300px) minmax(auto, 150px) 1fr;
-    padding: 20px 0 20px;
+    grid-template: 1fr / 1fr minmax(auto, 865px) minmax(auto, 454px) 1fr;
+    padding: 20px 24px 20px;
     align-items: center;
 }
 
@@ -26,7 +26,7 @@
 }
 
 .footer__button {
-    width: 100%;
+    width: 150px;
     background: #fff;
     border-radius: 8px;
     color: #2a81dd;
@@ -43,4 +43,9 @@
 
 .socials__link {
     margin-right: 14px;
+}
+
+.footer__right {
+    display: flex;
+    justify-content: space-between;
 }
