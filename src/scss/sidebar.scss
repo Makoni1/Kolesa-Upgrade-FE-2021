@@ -35,7 +35,7 @@
     font-weight: 600;
 }
 
-.active::before {
+.list__link::before {
     content: '';
     position: absolute;
     display: block;
@@ -46,7 +46,7 @@
     border-radius: 10px;
     background-color: #2a81dd;
     transition: ease 0.5s;
-    opacity: 1;
+    opacity: 0;
 }
 
 .list__link.active::before {

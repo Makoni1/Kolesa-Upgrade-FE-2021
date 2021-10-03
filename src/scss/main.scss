@@ -1,5 +1,6 @@
 .main {
-    padding: 0 16px;
+    padding: 0 24px;
+    margin: auto;
 }
 
 .sidebar {
@@ -25,12 +26,12 @@
     display: flex;
     align-items: center;
     border-radius: 16px;
-    font-size: 20px;
+    font-size: 16px;
+    line-height: 24px;
     font-weight: 600;
     border: 1px solid #fff;
     transition: all ease 0.5s;
-    margin-bottom: 40px;
-    margin-top: 24px;
+    margin-bottom: 8px;
 }
 
 .questions__item_take {
@@ -63,6 +64,8 @@
 .container__tabs {
     display: flex;
     flex-wrap: wrap;
+    margin-top: 32px;
+    margin-bottom: 16px;
 }
 
 .tabs__item {
@@ -108,13 +111,12 @@
 
 .products__wrapper {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(312px, 1fr));
     gap: 24px;
 }
 
 .product__card {
-    max-width: 330px;
-    width: 100%;
+    width: 312px;
     cursor: pointer;
     transition: 0.22s;
 }
@@ -210,7 +212,9 @@
 }
 
 .banner_mini {
-    width: 100%;
+    width: 312px;
+    height: 160px;
+    margin-bottom: 24px;
 }
 
 @media (min-width: 768px) {
@@ -228,6 +232,10 @@
 }
 
 @media (min-width: 360px) {
+    .main {
+        padding: 0 16px;
+    }
+
     .header {
         display: grid;
         grid-area: header;
@@ -256,13 +264,44 @@
         display: block;
     }
 
-    .buttons__get-scores {
-        max-width: 330px;
-        width: 100%;
-    }
-
     .header__logo {
         display: block;
         grid-column: 2/3;
+    }
+
+    .buttons__get-scores {
+        max-width: 330px;
+        width: 100%;
+        height: 56px;
+        padding: 8px 24px;
+        display: flex;
+        align-items: center;
+        border-radius: 16px;
+        font-size: 20px;
+        font-weight: 600;
+        border: 1px solid #fff;
+        transition: all ease 0.5s;
+        margin-bottom: 40px;
+        margin-top: 24px;
+    }
+
+    .container__tabs {
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    .products__wrapper {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+        gap: 24px;
+    }
+
+    .product__card {
+        max-width: 330px;
+        width: 100%;
+        cursor: pointer;
+        transition: 0.22s;
     }
 }
