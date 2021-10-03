@@ -3,7 +3,7 @@
     grid-area: header;
     padding: 32px 24px 24px;
     align-items: center;
-    grid-template: 1fr / 1fr 281px minmax(auto, 1038px) 1fr;
+    grid-template-columns: 1fr 34px;
 }
 
 .header__logo {
@@ -119,7 +119,6 @@
     padding: 15px;
     height: 30px;
     width: 30px;
-    transition: width 0.3s ease;
 }
 
 .btn {
@@ -132,7 +131,6 @@
     left: 0;
     height: 30px;
     width: 30px;
-    transition: transform 0.3s ease;
     background-image: url(../images/search-big.svg);
     background-repeat: no-repeat;
 }
@@ -142,11 +140,11 @@
 }
 
 .search.active .input {
+    transform: translateX(-198px);
     width: 200px;
 }
 
 .search.active .btn {
-    transform: translateX(198px);
     background-color: #f2f2f3;
 }
 
