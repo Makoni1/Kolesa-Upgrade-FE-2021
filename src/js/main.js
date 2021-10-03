@@ -1,5 +1,8 @@
-import '../css/style.css';
+const search = document.querySelector('.search');
+const btn = document.querySelector('.btn');
+const input = document.querySelector('.input');
 
-document.querySelector('#app').innerHTML = `
-  <h1>Hello, Akmaral Ongarova!</h1>
-`;
+btn.addEventListener('click', () => {
+    search.classList.toggle('active');
+    input.focus();
+});

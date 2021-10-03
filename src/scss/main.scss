@@ -19,8 +19,8 @@
 }
 
 .buttons__get-scores {
-    max-width: 330px;
-    width: 100%;
+    width: 312px;
+    height: 56px;
     padding: 8px 24px;
     display: flex;
     align-items: center;
@@ -228,11 +228,33 @@
 }
 
 @media (min-width: 360px) {
+    .header__burger {
+        display: none;
+    }
+
+    .search {
+        display: none;
+    }
+
+    .search__form {
+        display: block;
+    }
+
     .banner_mini {
         display: none;
     }
 
     .banner_big {
         display: block;
+    }
+
+    .buttons__get-scores {
+        max-width: 330px;
+        width: 100%;
+    }
+
+    .header__logo {
+        display: block;
+        grid-column: 2/3;
     }
 }

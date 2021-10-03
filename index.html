@@ -12,6 +12,9 @@
 <body>
     <div id="app">
         <header class="header">
+            <div class="burger">
+                <img class="header__burger" src="src/images/burger.svg" alt="burger-menu">
+            </div>
             <div class="header__logo">
                 <a class="header__logo" href="#">
                     <img class="header__logo-img" src="src/images/header_logo.svg" alt="Kolesa Logo">
@@ -23,6 +26,12 @@
                     <button class="search__btn" type="submit">
                     </button>
                 </form>
+                <div class="search">
+                    <input type="text" class="input" placeholder="Search...">
+                    <button class="btn">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div> 
                 <div class="header__user-wrap">
                     <button class="header__user" type="button">
                         <div class="header__user-image">
@@ -211,6 +220,7 @@
             </div>
         </footer>
     </div>
+    <script src="/src/js/main.js"></script>
 </body>
 </html>
 
