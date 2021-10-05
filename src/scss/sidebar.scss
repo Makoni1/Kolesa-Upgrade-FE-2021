@@ -14,25 +14,25 @@
     position: relative;
 }
 
-.list__link {
+.menu__list-link {
     font-size: 16px;
     color: #1c1819;
     transition: color ease 0.5s;
 }
 
-.list__link span {
+.menu__list-link span {
     font-weight: 600;
 }
 
-.list__link:hover {
+.menu__list-link:hover {
     color: rgb(26, 128, 223);
 }
 
-.list__link.active {
+.menu__list-link.active {
     font-weight: 600;
 }
 
-.list__link::before {
+.menu__list-link::before {
     content: '';
     position: absolute;
     display: block;
@@ -46,6 +46,6 @@
     opacity: 0;
 }
 
-.list__link.active::before {
+.menu__list-link.active::before {
     opacity: 1;
 }
