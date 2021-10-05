@@ -7,13 +7,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/src/scss/style.scss">
+    <!-- <link rel="stylesheet" href="/src/scss/style.scss"> -->
 </head>
 <body>
     <div id="app">
         <header class="header">
-            <div class="burger">
-                <img class="header__burger" src="src/images/burger.svg" alt="burger-menu">
+            <div class="header__burger">
+                <img class="header__burger-img" src="src/images/burger.svg" alt="burger-menu">
             </div>
             <div class="header__logo">
                 <a class="header__logo" href="#">
@@ -23,12 +23,12 @@
             <div class="header__search">
                 <form class="search__form">
                     <input class="search__input" type="text" placeholder="Поиск">
-                    <button class="search__btn" type="submit">
+                    <button class="search__btn" type="button">
                     </button>
                 </form>
                 <div class="search">
                     <input type="text" class="input" placeholder="Search...">
-                    <button class="btn">
+                    <button class="btn" type="button">
                         <i class="fas fa-search"></i>
                     </button>
                 </div> 
@@ -49,15 +49,15 @@
             <aside class="sidebar">
                 <nav class="sidebar__wrapper">
                     <ul class="menu__list">
-                        <li class="menu__item"><a href="#" class="list__link">Оргсхема</a></li>
-                        <li class="menu__item"><a href="#" class="list__link">Kolesa Team</a></li>
-                        <li class="menu__item"><a href="#" class="list__link active">Kolesa Shop</a></li>
-                        <li class="menu__item"><a href="#" class="list__link">Картина компании</a></li>
-                        <li class="menu__item"><a href="#" class="list__link">Новости</a></li>
-                        <li class="menu__item"><a href="#" class="list__link">Education</a></li>
-                        <li class="menu__item"><a href="#" class="list__link">Guidelines</a></li>
-                        <li class="menu__item"><a href="#" class="list__link">Библиотека</a></li>
-                        <li class="menu__item"><a href="#" class="list__link">FAQ</a></li>
+                        <li class="menu__list-item"><a href="#" class="list__link">Оргсхема</a></li>
+                        <li class="menu__list-item"><a href="#" class="list__link">Kolesa Team</a></li>
+                        <li class="menu__list-item"><a href="#" class="list__link active">Kolesa Shop</a></li>
+                        <li class="menu__list-item"><a href="#" class="list__link">Картина компании</a></li>
+                        <li class="menu__list-item"><a href="#" class="list__link">Новости</a></li>
+                        <li class="menu__list-item"><a href="#" class="list__link">Education</a></li>
+                        <li class="menu__list-item"><a href="#" class="list__link">Guidelines</a></li>
+                        <li class="menu__list-item"><a href="#" class="list__link">Библиотека</a></li>
+                        <li class="menu__list-item"><a href="#" class="list__link">FAQ</a></li>
                     </ul>
                 </nav>
             </aside>
@@ -220,7 +220,7 @@
             </div>
         </footer>
     </div>
-    <script src="/src/js/main.js"></script>
+    <script type ="module" src="/src/js/main.js"></script>
 </body>
 </html>
 

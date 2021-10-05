@@ -4,18 +4,14 @@
     padding: 32px 24px 24px;
     align-items: center;
     grid-template-columns: 1fr 34px;
-}
 
-.header__logo {
-    display: none;
-}
+    &__logo {
+        display: none;
+    }
 
-// .header__user-wrap {
-//     grid-column: 4/5;
-// }
-
-.header__user-wrap {
-    display: none;
+    &__user-wrap {
+        display: none;
+    }
 }
 
 .header__user {
@@ -25,7 +21,7 @@
     background-color: #fff;
 }
 
-.header__burger {
+.header__burger-img {
     display: block;
 }
 
@@ -146,10 +142,4 @@
 
 .search.active .btn {
     background-color: #f2f2f3;
-}
-
-@media (min-width: 768px) {
-    .header__user-wrap {
-        display: block;
-    }
 }
