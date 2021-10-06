@@ -1,0 +1,99 @@
+.product {
+    &__card {
+        max-width: 330px;
+        width: 100%;
+        min-height: 474px;
+        position: relative;
+        margin-bottom: 24px;
+
+        &:hover {
+            @include br(8px);
+
+            box-shadow: 0 2px 10px rgba(28, 24, 25, 0.1);
+
+            & .product__order-btn {
+                opacity: 1;
+            }
+        }
+    }
+
+    &__card-image {
+        position: relative;
+    }
+
+    &__label {
+        @include br(4px);
+
+        position: absolute;
+        left: 16px;
+        bottom: 16px;
+        padding: 0 4px;
+        background: $green;
+        text-transform: uppercase;
+        color: $white;
+        font-size: 13px;
+    }
+
+    &__card-info {
+        padding: 16px;
+    }
+
+    &__balance-number {
+        font-style: normal;
+        font-weight: 600;
+        font-size: 24px;
+        line-height: 36px;
+        padding-bottom: 4px;
+        color: $blue;
+        transition: 0.22s;
+
+        &:hover {
+            color: $red;
+        }
+    }
+
+    &__item-name {
+        font-style: normal;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 24px;
+        color: $dark;
+        display: block;
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    &__item-size {
+        font-style: normal;
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 24px;
+        padding-bottom: 16px;
+        color: $grey;
+    }
+
+    &__order-btn {
+        @include br(8px);
+
+        width: 100%;
+        font-size: 16px;
+        line-height: 24px;
+        background: $blue;
+        height: 44px;
+        border: none;
+        color: $white;
+        box-shadow: 0 2px 4px rgba(28, 24, 25, 0.1);
+        cursor: pointer;
+        opacity: 0;
+        transition: 0.22s;
+
+        &:hover {
+            opacity: 1;
+            background: $dark;
+            border: 1px solid #fff;
+        }
+    }
+}

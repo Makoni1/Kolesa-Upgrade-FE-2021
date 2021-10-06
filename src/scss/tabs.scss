@@ -1,0 +1,31 @@
+.tabs {
+    gap: 8px;
+    display: flex;
+    overflow-x: auto;
+
+    &__item {
+        @include br(8px);
+
+        margin: 32px 0 16px;
+        min-width: 100px;
+        height: 36px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0 4px;
+        border: 1px solid rgba(28, 24, 25, 0.1);
+        font-size: 14px;
+        color: $blue;
+        transition: box-shadow ease 0.5s;
+
+        &:hover {
+            border-color: $blue;
+        }
+
+        &.active {
+            background: $tabs;
+            border: 1px solid $tabs;
+            color: $dark;
+        }
+    }
+}

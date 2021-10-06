@@ -57,12 +57,3 @@ button {
     text-decoration: none;
     background: transparent;
 }
-
-#app {
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    min-height: 100vh;
-    display: grid;
-    grid-template: minmax(104px, auto) 1fr minmax(100px, auto) / 1fr;
-    grid-template-areas: 'header' 'main' 'footer';
-}

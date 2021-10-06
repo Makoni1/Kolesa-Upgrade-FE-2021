@@ -1,8 +1,8 @@
 import '../scss/style.scss';
 
-const search = document.querySelector('.search');
-const btn = document.querySelector('.btn');
-const input = document.querySelector('.input');
+const search = document.querySelector('.search__mini');
+const btn = document.querySelector('.search__mini__button');
+const input = document.querySelector('.search__mini_input');
 
 btn.addEventListener('click', () => {
     search.classList.toggle('active');
