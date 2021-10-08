@@ -3,13 +3,13 @@
 
     gap: 8px;
     overflow-x: auto;
+    margin: 32px 0 16px;
 
     &__item {
         @include flex;
         @include secondary-text;
 
         border-radius: 8px;
-        margin: 32px 0 16px;
         min-width: 100px;
         height: 36px;
         justify-content: center;
