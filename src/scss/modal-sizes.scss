@@ -1,12 +1,14 @@
 .size {
     &__items {
-        display: flex;
+        @include flex;
+
         margin-top: 8px;
     }
 
     &__title {
+        @include secondary-text;
+
         font-weight: 400;
-        font-size: 14px;
     }
 
     &__input {
@@ -22,8 +24,7 @@
     }
 
     &__label {
-        @include br(8px);
-
+        border-radius: 8px;
         top: 0;
         left: 0;
         padding: 8px 14px;

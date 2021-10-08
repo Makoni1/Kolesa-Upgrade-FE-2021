@@ -2,10 +2,11 @@
     max-width: 330px;
 
     &__items {
-        margin-top: 16px;
-        display: flex;
+        @include flex;
+
         justify-content: center;
         flex-wrap: wrap;
+        margin-top: 16px;
     }
 
     &__item {

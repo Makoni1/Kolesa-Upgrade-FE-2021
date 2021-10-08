@@ -10,11 +10,11 @@
 }
 
 .modal-wrapper {
-    @include br(16px);
+    @include flex;
 
+    border-radius: 16px;
     max-width: 1039px;
-    background: #fff;
-    display: flex;
+    background: $white;
     padding: 64px 56px;
     justify-content: space-between;
     align-content: center;
@@ -34,7 +34,7 @@
         font-weight: 400;
         font-size: 20px;
         line-height: 32px;
-        color: #1c1819;
+        color: $dark;
         overflow: hiddden;
         white-space: nowrap;
     }
@@ -44,10 +44,10 @@
     }
 
     &__details {
-        font-size: 14px;
+        @include secondary-text;
     }
 
     &__question {
-        font-size: 14px;
+        @include secondary-text;
     }
 }

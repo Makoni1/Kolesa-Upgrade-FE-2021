@@ -1,14 +1,16 @@
 .header {
-    display: flex;
+    @include flex;
 
     &__wrapper {
-        display: flex;
+        @include flex;
+
         justify-content: space-between;
         padding: 32px 91px 0 32px;
     }
 
     &__left {
-        display: flex;
+        @include flex;
+
         gap: 66px;
     }
 
@@ -38,8 +40,7 @@
     }
 
     &__input {
-        @include br(8px);
-
+        border-radius: 8px;
         padding: 8px 8px 8px 56px;
         width: 308px;
         height: 44px;
@@ -70,11 +71,12 @@
     }
 
     &__right {
-        display: flex;
+        @include flex;
     }
 
     &__user {
-        display: flex;
+        @include flex;
+
         gap: 16px;
 
         &:hover {
@@ -88,16 +90,16 @@
     }
 
     &__username {
+        @include secondary-text;
+
         font-style: normal;
         font-weight: 600;
-        font-size: 14px;
-        line-height: 24px;
         color: $blue;
     }
 
     &__userscores {
         font-weight: normal;
-        font-size: 13px;
+        font-size: 14px;
         line-height: 20px;
         color: $dark;
         float: left;
@@ -109,10 +111,11 @@
         height: 38px;
 
         & .header__right-input {
+            @include secondary-text;
+
             background-color: $white;
             border: 0;
-            font-size: 14px;
-            padding: 15px;
+            padding: 16px;
             height: 24px;
             width: 24px;
             transition: width 0.3s ease;

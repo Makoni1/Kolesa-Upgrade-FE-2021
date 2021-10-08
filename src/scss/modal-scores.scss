@@ -1,5 +1,6 @@
 .scores {
-    display: flex;
+    @include flex;
+
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
@@ -14,15 +15,13 @@
     }
 
     &__btn {
-        @include br(8px);
+        @include secondary-text;
 
+        border-radius: 8px;
         background: #2a81dd;
         box-shadow: 0 2px 4px rgba(28, 24, 25, 0.1);
-        border-radius: 8px;
         font-style: normal;
         font-weight: normal;
-        font-size: 14px;
-        line-height: 24px;
         width: 134px;
         height: 36px;
         border: 0;
@@ -30,9 +29,9 @@
     }
 
     &__right {
-        @include br(16px);
+        @include flex;
 
-        display: flex;
+        border-radius: 16px;
         justify-content: space-evenly;
         align-items: center;
         background: #f0fafd;
@@ -46,19 +45,19 @@
     }
 
     &__title {
+        @include secondary-text;
+
         font-style: normal;
         font-weight: 400;
-        font-size: 14px;
-        line-height: 24px;
         color: #888b94;
         margin-bottom: 4px;
     }
 
     &__text {
+        @include main-text;
+
         font-style: normal;
         font-weight: 400;
-        font-size: 16px;
-        line-height: 24px;
         color: #1c1819;
     }
 }

@@ -1,6 +1,8 @@
 .main {
     &__wrapper {
-        display: flex;
+        @include flex;
+
+        gap: 33px;
     }
 
     &__box {
@@ -11,13 +13,15 @@
     }
 
     &__buttons {
-        display: flex;
+        @include flex;
+
         flex-wrap: wrap;
         gap: 24px;
     }
 
     &__tabs {
-        display: flex;
+        @include flex;
+
         gap: 8px;
     }
 

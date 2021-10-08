@@ -13,6 +13,26 @@ $shirt-blue: #00458a;
 $shirt-beige: #efe8d8;
 $shirt-grey: #d4d4da;
 
-@mixin br($r) {
-    border-radius: $r;
+$font-size-base: 16px;
+$font-size-secondary: 14px;
+$main-line-height: 24px;
+
+@mixin flex {
+    display: flex;
+}
+
+@mixin main-text {
+    font: {
+        size: $font-size-base
+    }
+
+    line-height: $main-line-height
+}
+
+@mixin secondary-text {
+    font: {
+        size: $font-size-secondary
+    }
+
+    line-height: $main-line-height
 }

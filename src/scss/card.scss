@@ -7,8 +7,7 @@
         margin-bottom: 24px;
 
         &:hover {
-            @include br(8px);
-
+            border-radius: 8px;
             box-shadow: 0 2px 10px rgba(28, 24, 25, 0.1);
 
             & .product__order-btn {
@@ -22,8 +21,9 @@
     }
 
     &__label {
-        @include br(4px);
+        @include secondary-text;
 
+        border-radius: 4px;
         position: absolute;
         left: 16px;
         bottom: 16px;
@@ -31,7 +31,6 @@
         background: $green;
         text-transform: uppercase;
         color: $white;
-        font-size: 13px;
     }
 
     &__card-info {
@@ -53,10 +52,10 @@
     }
 
     &__item-name {
+        @include main-text;
+
         font-style: normal;
         font-weight: 600;
-        font-size: 16px;
-        line-height: 24px;
         color: $dark;
         display: block;
         display: -webkit-box;
@@ -67,20 +66,19 @@
     }
 
     &__item-size {
+        @include secondary-text;
+
         font-style: normal;
         font-weight: normal;
-        font-size: 14px;
-        line-height: 24px;
         padding-bottom: 16px;
         color: $grey;
     }
 
     &__order-btn {
-        @include br(8px);
+        @include main-text;
 
+        border-radius: 8px;
         width: 100%;
-        font-size: 16px;
-        line-height: 24px;
         background: $blue;
         height: 44px;
         border: none;
