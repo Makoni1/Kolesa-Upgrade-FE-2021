@@ -1,0 +1,21 @@
+.images {
+    max-width: 330px;
+
+    &__items {
+        @include flex;
+
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-top: 16px;
+    }
+
+    &__item {
+        margin: 4px;
+        border-radius: 8px;
+        margin-right: 8px;
+
+        &.active {
+            border: 1px solid $blue;
+        }
+    }
+}

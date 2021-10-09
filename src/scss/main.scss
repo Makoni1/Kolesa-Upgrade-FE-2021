@@ -1,213 +1,28 @@
 .main {
-    padding: 0 16px;
-    padding-bottom: 192px;
-    display: grid;
-    grid-area: main;
-    grid-template: 1fr / 1fr 281px minmax(auto, 1038px) 50px 1fr;
-}
+    &__wrapper {
+        @include flex;
 
-.sidebar {
-    grid-column: 2/3;
-}
+        gap: 33px;
+    }
 
-.container {
-    max-width: 1038px;
-    width: 100%;
-}
+    &__box {
+        max-width: 1038px;
+        width: 100%;
+        margin-top: 24px;
+        margin-bottom: 192px;
+    }
 
-.container .banner {
-    max-width: 1038px;
-    max-height: 335px;
-    width: 100%;
-}
+    &__questions {
+        @include flex;
 
-.container .container__buttons {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-}
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 24px;
+    }
 
-.buttons__get-scores {
-    max-width: 330px;
-    width: 100%;
-    padding: 8px 24px;
-    display: flex;
-    align-items: center;
-    border-radius: 16px;
-    font-size: 20px;
-    font-weight: 600;
-    border: 1px solid #fff;
-    transition: all ease 0.5s;
-    margin-bottom: 40px;
-    margin-top: 24px;
-}
-
-.questions__item_take {
-    background: #eff8eb;
-}
-
-.questions__item_take:hover {
-    border: 1px solid #eff8eb;
-    background: transparent;
-}
-
-.questions__item_how {
-    background: #fffae7;
-}
-
-.questions__item_how:hover {
-    border: 1px solid #fffae7;
-    background: transparent;
-}
-
-.questions__item_gift {
-    background: #e9f2fb;
-}
-
-.questions__item_gift:hover {
-    border: 1px solid #e9f2fb;
-    background: transparent;
-}
-
-.container__tabs {
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.tabs__item {
-    padding: 8px 22px;
-    margin: 0 8px 16px 0;
-    border-radius: 8px;
-    border: 1px solid rgba(28, 24, 25, 0.1);
-    font-size: 14px;
-    color: #2a81dd;
-}
-
-.tabs__item:hover {
-    box-shadow: 0 0 10px rgb(26, 154, 240);
-}
-
-.tabs__item.active {
-    border: 1px solid #d6ecfb;
-    background: #d6ecfb;
-    color: #1c1819;
-}
-
-.questions__item_take::before,
-.questions__item_how::before,
-.questions__item_gift::before {
-    content: '';
-    display: block;
-    width: 48px;
-    height: 56px;
-    margin-right: 16px;
-}
-
-.questions__item_take::before {
-    background: url('../images/plus-icon.png') no-repeat center center;
-}
-
-.questions__item_how::before {
-    background: url('../images/question-icon.png') no-repeat center center;
-}
-
-.questions__item_gift::before {
-    background: url('../images/gift-icon.png') no-repeat center center;
-}
-
-.products__wrapper {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-}
-
-.product__card {
-    max-width: 330px;
-    cursor: pointer;
-    transition: 0.22s;
-}
-
-.product__card-info {
-    padding: 16px;
-}
-
-.balance_number {
-    font-style: normal;
-    font-weight: 600;
-    font-size: 24px;
-    line-height: 36px;
-    padding-bottom: 4px;
-    color: #2a81dd;
-    transition: 0.22s;
-}
-
-.item_name {
-    font-style: normal;
-    font-weight: 600;
-    font-size: 16px;
-    line-height: 24px;
-    color: #1c1819;
-    display: block;
-    display: -webkit-box;
-    -webkit-line-clamp: 1;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-.item_size {
-    font-style: normal;
-    font-weight: normal;
-    font-size: 14px;
-    line-height: 24px;
-    padding-bottom: 16px;
-    color: #888b94;
-}
-
-.order_btn {
-    width: 100%;
-    font-size: 16px;
-    line-height: 24px;
-    background: #2a81dd;
-    height: 44px;
-    border: none;
-    color: white;
-    box-shadow: 0 2px 4px rgba(28, 24, 25, 0.1);
-    border-radius: 8px;
-    cursor: pointer;
-    opacity: 0;
-    transition: 0.22s;
-}
-
-.order_btn:hover {
-    background: #1c1819;
-    border: 1px solid #fff;
-}
-
-.product__card:hover .balance_number {
-    color: #f33;
-}
-
-.product__card:hover .order_btn {
-    opacity: 1;
-}
-
-.product__card:hover {
-    box-shadow: 0 2px 10px rgba(28, 24, 25, 0.1);
-    border-radius: 8px;
-}
-
-.card__image {
-    position: relative;
-}
-
-.products__label {
-    position: absolute;
-    left: 16px;
-    bottom: 16px;
-    padding: 0 4px;
-    background: #64bd38;
-    border-radius: 4px;
-    text-transform: uppercase;
-    color: #fff;
-    font-size: 13px;
+    &__product {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+        column-gap: 24px;
+    }
 }

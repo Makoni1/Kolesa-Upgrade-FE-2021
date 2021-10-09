@@ -1,0 +1,36 @@
+.size {
+    &__items {
+        @include flex;
+
+        margin-top: 8px;
+    }
+
+    &__title {
+        @include secondary-text;
+
+        font-weight: 400;
+    }
+
+    &__input {
+        -webkit-appearance: none;
+        appearance: none;
+        opacity: 0;
+
+        &:checked + .size__label {
+            background-color: $tabs;
+            border: 1px solid $tabs;
+            color: $dark;
+        }
+    }
+
+    &__label {
+        border-radius: 8px;
+        top: 0;
+        left: 0;
+        padding: 8px 14px;
+        text-align: center;
+        color: $blue;
+        border: 1px solid rgba(28, 24, 25, 0.1);
+        margin-right: 8px;
+    }
+}

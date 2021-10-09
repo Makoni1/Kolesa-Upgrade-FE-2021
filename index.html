@@ -7,207 +7,321 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/src/scss/style.scss">
 </head>
 <body>
     <div id="app">
         <header class="header">
-            <div class="header__logo">
-                <a class="header__logo" href="#">
-                    <img class="header__logo-img" src="src/images/header_logo.svg" alt="Kolesa Logo">
-                </a>
-            </div>
-            <div class="header__search">
-                <form class="search__form">
-                    <input class="search__input" type="text" placeholder="Поиск">
-                    <button class="search__btn" type="submit">
-                    </button>
-                </form>
-            </div>
-            <div class="header__user-wrap">
-                <button class="header__user" type="button">
-                    <div class="header__user-image">
-                        <img src="/src/images/user-img.png" alt="User-image">
+            <div class="container">
+                <div class="header__wrapper">
+                    <div class="header__left">
+                        <button class="header__burger-btn">
+                            <img class="burger__img" src="src/images/burger.svg" alt="menu">
+                        </button>
+                        <a class="header__logo" href="#">
+                            <img class="header__logo-img" src="src/images/header_logo.svg" alt="Kolesa Logo">
+                        </a>
+                        <form class="header__form">
+                            <input type="text" name="search" class="header__input" placeholder="Поиск">
+                            <button class="header__search" type="button">
+                                <img class="header__img" src="/src/images/search-big.svg" alt="Поиск" >
+                            </button>
+                        </form> 
                     </div>
-                    <div class="header__user-descr">
-                        <h3 class="user__name">Мортиджан</h3>
-                        <p class="user__scores">300 баллов</p>
+                    <div class="header__right">
+                        <button class="header__user" type="button">
+                            <img class="header__user-image" src="/src/images/user-img.png" alt="User-image">
+                            <div class="header__user-descr">
+                                <h3 class="header__username">Мортиджан</h3>
+                                <p class="header__userscores">300 баллов</p>
+                            </div>
+                        </button>
                     </div>
-                </button>
+                    <form class="header__right-search">
+                        <input class="header__right-input" type="text" placeholder="Поиск">
+                        <button class="header__right-btn" type="button" >
+                            <img class="header__right-img" src="src/images/search-icon.svg" alt="Поиск">
+                        </button>
+                    </form>
+                </div>
             </div>
         </header>
         <main class="main">
-            <aside class="sidebar">
-                <nav class="sidebar__wrapper">
-                    <ul class="menu__list">
-                        <li class="menu__item"><a href="#" class="list__link">Оргсхема</a></li>
-                        <li class="menu__item"><a href="#" class="list__link">Kolesa Team</a></li>
-                        <li class="menu__item"><a href="#" class="list__link active">Kolesa Shop</a></li>
-                        <li class="menu__item"><a href="#" class="list__link">Картина компании</a></li>
-                        <li class="menu__item"><a href="#" class="list__link">Новости</a></li>
-                        <li class="menu__item"><a href="#" class="list__link">Education</a></li>
-                        <li class="menu__item"><a href="#" class="list__link">Guidelines</a></li>
-                        <li class="menu__item"><a href="#" class="list__link">Библиотека</a></li>
-                        <li class="menu__item"><a href="#" class="list__link">FAQ</a></li>
-                    </ul>
-                </nav>
-            </aside>
             <div class="container">
-                <div class="banner">
-                    <img class="banner_img" src="src/images/banner.jpg" alt="Баннер">
+                <div class="main__wrapper">
+                    <aside class="sidebar">
+                        <nav class="menu">
+                            <ul class="menu__list">
+                                <li class="menu__list-item"><a href="#" class="menu__list-link">Оргсхема</a></li>
+                                <li class="menu__list-item"><a href="#" class="menu__list-link">Kolesa Team</a></li>
+                                <li class="menu__list-item"><a href="#" class="menu__list-link active">Kolesa Shop</a></li>
+                                <li class="menu__list-item"><a href="#" class="menu__list-link">Картина компании</a></li>
+                                <li class="menu__list-item"><a href="#" class="menu__list-link">Новости</a></li>
+                                <li class="menu__list-item"><a href="#" class="menu__list-link">Education</a></li>
+                                <li class="menu__list-item"><a href="#" class="menu__list-link">Guidelines</a></li>
+                                <li class="menu__list-item"><a href="#" class="menu__list-link">Библиотека</a></li>
+                                <li class="menu__list-item"><a href="#" class="menu__list-link">FAQ</a></li>
+                            </ul>
+                        </nav>
+                    </aside>
+                    <div class="main__box">
+                        <div class="banner">
+                            <img class="banner__img-big" src="src/images/banner.jpg" alt="Баннер">
+                        </div>
+                        <div class="main__questions questions">
+                            <button type="button" class="questions__get-scores questions__item_take"> Получить баллы</button>
+                            <button type="button" class="questions__get-scores questions__item_how">Как получить баллы</button>
+                            <button type="button" class="questions__get-scores questions__item_gift">Подарить баллы</button>
+                        </div>
+                        <div class="main__tabs tabs">
+                            <button type="button" class="tabs__item active">Все товары</button>
+                            <button type="button" class="tabs__item">Одежда</button>
+                            <button type="button" class="tabs__item">Аксессуары</button>
+                        </div>
+                        <div class="main__product product">
+                            <div class="product__card">
+                                <div class="product__card-image">
+                                    <img src="/src/images/photo_tovara.jpg">
+                                    <span class="product__label">New</span>
+                                </div>
+                                <div class="product__card-info">
+                                    <p class="product__balance-number">220 баллов</p>
+                                    <p class="product__item-name">Футболка "Эволюционируй или умри</p>
+                                    <p class="product__item-size">Размеры S/M/L</p>
+                                    <button class="product__order-btn">Заказать</button>
+                                </div>
+                            </div>
+                            <div class="product__card">
+                                <div class="product__card-image">
+                                    <img src="/src/images/photo_tovara.jpg">
+                                    <span class="product__label">New</span>
+                                </div>
+                                <div class="product__card-info">
+                                    <p class="product__balance-number">220 баллов</p>
+                                    <p class="product__item-name">Футболка "Эволюционируй или умри</p>
+                                    <p class="product__item-size">Размеры S/M/L</p>
+                                    <button class="product__order-btn">Заказать</button>
+                                </div>
+                            </div>
+                            <div class="product__card">
+                                <div class="product__card-image">
+                                    <img src="/src/images/photo_tovara.jpg">
+                                </div>
+                                <div class="product__card-info">
+                                    <p class="product__balance-number">220 баллов</p>
+                                    <p class="product__item-name">Футболка "Эволюционируй или умри</p>
+                                    <p class="product__item-size">Размеры S/M/L</p>
+                                    <button class="product__order-btn">Заказать</button>
+                                </div>
+                            </div>
+                            <div class="product__card">
+                                <div class="product__card-image">
+                                    <img src="/src/images/photo_tovara.jpg">
+                                </div>
+                                <div class="product__card-info">
+                                    <p class="product__balance-number">220 баллов</p>
+                                    <p class="product__item-name">Футболка "Эволюционируй или умри</p>
+                                    <p class="product__item-size">Размеры S/M/L</p>
+                                    <button class="product__order-btn">Заказать</button>
+                                </div>
+                            </div>
+                            <div class="product__card">
+                                <div class="product__card-image">
+                                    <img src="/src/images/photo_tovara.jpg">
+                                </div>
+                                <div class="product__card-info">
+                                    <p class="product__balance-number">220 баллов</p>
+                                    <p class="product__item-name">Футболка "Эволюционируй или умри</p>
+                                    <p class="product__item-size">Размеры S/M/L</p>
+                                    <button class="product__order-btn">Заказать</button>
+                                </div>
+                            </div>
+                            <div class="product__card">
+                                <div class="product__card-image">
+                                    <img src="/src/images/photo_tovara.jpg">
+                                </div>
+                                <div class="product__card-info">
+                                    <p class="product__balance-number">220 баллов</p>
+                                    <p class="product__item-name">Футболка "Эволюционируй или умри</p>
+                                    <p class="product__item-size">Размеры S/M/L</p>
+                                    <button class="product__order-btn">Заказать</button>
+                                </div>
+                            </div>
+                            <div class="product__card">
+                                <div class="product__card-image">
+                                    <img src="/src/images/photo_tovara.jpg">
+                                </div>
+                                <div class="product__card-info">
+                                    <p class="product__balance-number">220 баллов</p>
+                                    <p class="product__item-name">Футболка "Эволюционируй или умри</p>
+                                    <p class="product__item-size">Размеры S/M/L</p>
+                                    <button class="product__order-btn">Заказать</button>
+                                </div>
+                            </div>
+                            <div class="product__card">
+                                <div class="product__card-image">
+                                    <img src="/src/images/photo_tovara.jpg">
+                                </div>
+                                <div class="product__card-info">
+                                    <p class="product__balance-number">220 баллов</p>
+                                    <p class="product__item-name">Футболка "Эволюционируй или умри</p>
+                                    <p class="product__item-size">Размеры S/M/L</p>
+                                    <button class="product__order-btn">Заказать</button>
+                                </div>
+                            </div>
+                            <div class="product__card">
+                                <div class="product__card-image">
+                                    <img src="/src/images/photo_tovara.jpg">
+                                </div>
+                                <div class="product__card-info">
+                                    <p class="product__balance-number">220 баллов</p>
+                                    <p class="product__item-name">Футболка "Эволюционируй или умри</p>
+                                    <p class="product__item-size">Размеры S/M/L</p>
+                                    <button class="product__order-btn">Заказать</button>
+                                </div>
+                            </div>
+                            <div class="product__card">
+                                <div class="product__card-image">
+                                    <img src="/src/images/photo_tovara.jpg">
+                                </div>
+                                <div class="product__card-info">
+                                    <p class="product__balance-number">220 баллов</p>
+                                    <p class="product__item-name">Футболка "Эволюционируй или умри</p>
+                                    <p class="product__item-size">Размеры S/M/L</p>
+                                    <button class="product__order-btn">Заказать</button>
+                                </div>
+                            </div>
+                            <div class="product__card">
+                                <div class="product__card-image">
+                                    <img src="/src/images/photo_tovara.jpg">
+                                </div>
+                                <div class="product__card-info">
+                                    <p class="product__balance-number">220 баллов</p>
+                                    <p class="product__item-name">Футболка "Эволюционируй или умри</p>
+                                    <p class="product__item-size">Размеры S/M/L</p>
+                                    <button class="product__order-btn">Заказать</button>
+                                </div>
+                            </div>
+                            <div class="product__card">
+                                <div class="product__card-image">
+                                    <img src="/src/images/photo_tovara.jpg">
+                                </div>
+                                <div class="product__card-info">
+                                    <p class="product__balance-number">220 баллов</p>
+                                    <p class="product__item-name">Футболка "Эволюционируй или умри</p>
+                                    <p class="product__item-size">Размеры S/M/L</p>
+                                    <button class="product__order-btn">Заказать</button>
+                                </div>
+                            </div>
+                           
+                        </div> 
+                    </div>
                 </div>
-                <div class="container__buttons">
-                    <button type="button" class="buttons__get-scores questions__item_take" href="#"> Получить баллы</button>
-                    <button type="button" class="buttons__get-scores questions__item_how" href="#">Как получить баллы</button>
-                    <button type="button" class="buttons__get-scores questions__item_gift" href="#">Подарить баллы</button>
-                </div>
-                <div class="container__tabs">
-                    <button type="button" class="tabs__item active" href="#">Все товары</button>
-                    <button type="button" class="tabs__item" href="#">Одежда</button>
-                    <button type="button" class="tabs__item" href="#">Аксессуары</button>
-                </div>
-                <div class="products__wrapper">
-                    <div class="product__card">
-                        <div class="card__image">
-                            <img src="/src/images/photo_tovara.jpg">
-                            <span class="products__label">New</span>
-                        </div>
-                        <div class="product__card-info">
-                            <p class="balance_number">220 баллов</p>
-                            <p class="item_name">Футболка "Эволюционируй или умри</p>
-                            <p class="item_size">Размеры S/M/L</p>
-                            <button class="order_btn">Заказать</button>
-                        </div>
-                    </div>
-                    <div class="product__card">
-                        <div class="card__image">
-                            <img src="/src/images/photo_tovara.jpg">
-                            <span class="products__label">New</span>
-                        </div>
-                        <div class="product__card-info">
-                            <p class="balance_number">220 баллов</p>
-                            <p class="item_name">Футболка "Эволюционируй или умри</p>
-                            <p class="item_size">Размеры S/M/L</p>
-                            <button class="order_btn">Заказать</button>
-                        </div>
-                    </div>
-                    <div class="product__card">
-                        <img src="/src/images/photo_tovara.jpg">
-                        <div class="product__card-info">
-                            <p class="balance_number">220 баллов</p>
-                            <p class="item_name">Футболка "Эволюционируй или умри</p>
-                            <p class="item_size">Размеры S/M/L</p>
-                            <button class="order_btn">Заказать</button>
-                        </div>
-                    </div>
-                    <div class="product__card">
-                        <img src="/src/images/photo_tovara.jpg">
-                        <div class="product__card-info">
-                            <p class="balance_number">220 баллов</p>
-                            <p class="item_name">Футболка "Эволюционируй или умри</p>
-                            <p class="item_size">Размеры S/M/L</p>
-                            <button class="order_btn">Заказать</button>
-                        </div>
-                    </div>
-                    <div class="product__card">
-                        <img src="/src/images/photo_tovara.jpg">
-                        <div class="product__card-info">
-                            <p class="balance_number">220 баллов</p>
-                            <p class="item_name">Футболка "Эволюционируй или умри</p>
-                            <p class="item_size">Размеры S/M/L</p>
-                            <button class="order_btn">Заказать</button>
-                        </div>
-                    </div>
-                    <div class="product__card">
-                        <img src="/src/images/photo_tovara.jpg">
-                        <div class="product__card-info">
-                            <p class="balance_number">220 баллов</p>
-                            <p class="item_name">Футболка "Эволюционируй или умри</p>
-                            <p class="item_size">Размеры S/M/L</p>
-                            <button class="order_btn">Заказать</button>
-                        </div>
-                    </div>
-                    <div class="product__card">
-                        <img src="/src/images/photo_tovara.jpg">
-                        <div class="product__card-info">
-                            <p class="balance_number">220 баллов</p>
-                            <p class="item_name">Футболка "Эволюционируй или умри</p>
-                            <p class="item_size">Размеры S/M/L</p>
-                            <button class="order_btn">Заказать</button>
-                        </div>
-                    </div>
-                    <div class="product__card">
-                        <img src="/src/images/photo_tovara.jpg">
-                        <div class="product__card-info">
-                            <p class="balance_number">220 баллов</p>
-                            <p class="item_name">Футболка "Эволюционируй или умри</p>
-                            <p class="item_size">Размеры S/M/L</p>
-                            <button class="order_btn">Заказать</button>
-                        </div>
-                    </div>
-                    <div class="product__card">
-                        <img src="/src/images/photo_tovara.jpg">
-                        <div class="product__card-info">
-                            <p class="balance_number">220 баллов</p>
-                            <p class="item_name">Футболка "Эволюционируй или умри</p>
-                            <p class="item_size">Размеры S/M/L</p>
-                            <button class="order_btn">Заказать</button>
-                        </div>
-                    </div>
-                    <div class="product__card">
-                        <img src="/src/images/photo_tovara.jpg">
-                        <div class="product__card-info">
-                            <p class="balance_number">220 баллов</p>
-                            <p class="item_name">Футболка "Эволюционируй или умри</p>
-                            <p class="item_size">Размеры S/M/L</p>
-                            <button class="order_btn">Заказать</button>
-                        </div>
-                    </div>
-                    <div class="product__card">
-                        <img src="/src/images/photo_tovara.jpg">
-                        <div class="product__card-info">
-                            <p class="balance_number">220 баллов</p>
-                            <p class="item_name">Футболка "Эволюционируй или умри</p>
-                            <p class="item_size">Размеры S/M/L</p>
-                            <button class="order_btn">Заказать</button>
-                        </div>
-                    </div>
-                    <div class="product__card">
-                        <img src="/src/images/photo_tovara.jpg">
-                        <div class="product__card-info">
-                            <p class="balance_number">220 баллов</p>
-                            <p class="item_name">Футболка "Эволюционируй или умри</p>
-                            <p class="item_size">Размеры S/M/L</p>
-                            <button class="order_btn">Заказать</button>
-                        </div>
-                    </div>
-                </div> 
             </div>
         </main>
         <footer class="footer">
-            <div class="footer__left">
-                <p class="footer__copyright">© Kolesa Group</p>
-                <div class="footer__social">
-                    <a class="socials__link" href="https://www.instagram.com/">
-                        <img src="src/images/insta.svg" alt="instagram">
-                    </a>
-                    <a class="socials__link" href="https://www.youtube.com/">
-                        <img src="src/images/youtube.svg" alt="youtube">
-                    </a>
-                    <a class="socials__link" href="https://www.vk.com/">
-                        <img src="src/images/vk.svg" alt="vkontakte">
-                    </a>
+            <div class="container">
+                <div class="footer__wrapper">
+                    <div class="footer__left">
+                        <p class="footer__copyright">© Kolesa Group</p>
+                        <div class="footer__social">
+                            <a class="footer__social-link" href="https://www.instagram.com/">
+                                <img class="footer__item-icon" src="src/images/insta.svg" alt="instagram">
+                            </a>
+                            <a class="footer__social-link" href="https://www.youtube.com/">
+                                <img class="footer__item-icon" src="src/images/youtube.svg" alt="youtube">
+                            </a>
+                            <a class="footer__social-link" href="https://www.vk.com/">
+                                <img class="footer__item-icon" src="src/images/vk.svg" alt="vkontakte">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="footer__right">
+                        <div class="footer__content">
+                            <p class="footer__content-item">Есть идеи что улучшить? </p>
+                            <p class="footer__content-item">Не знаешь, с кем решить проблему?</p>
+                        </div>
+                        <div class="footer__btn">
+                            <button type="button" class="footer__button">Написать</button>
+                        </div> 
+                    </div>
                 </div>
             </div>
-            <div class="footer__content">
-                <p class="footer__content-item">Есть идеи что улучшить? </p>
-                <p class="footer__content-item">Не знаешь, с кем решить проблему?</p>
-            </div>
-            <div class="footer__btn">
-                <button type="button" class="footer__button">Написать</button>
-            </div> 
         </footer>
+        <div class="modal-window-wrap">
+            <div class="modal-wrapper">
+              <button class="modal-wrapper__btn"></button>
+              <div class="images">
+                <img src="src/images/product.jpg" alt="футболка" width="330" height="330">
+                <div class="images__items">
+                  <img class="images__item" src="src/images/type1.png">
+                  <img class="images__item active" src="src/images/type2.png">
+                  <img class="images__item" src="src/images/type3.png">
+                </div>
+              </div>
+              <div class="modal-wrapper__desc">
+                  <h3 class="modal-wrapper__title">Футболка "Эволюционируй или сдохни"</h3>
+                  <div class="modal-wrapper__blocks scores">
+                    <div class="scores__left">
+                      <div class="scores__left-title">
+                        100 баллов
+                      </div>
+                      <button class="scores__btn" type="button">
+                        Заказать
+                      </button>
+                    </div>
+                    <div class="scores__right">
+                        <div class="scores-content">
+                            <p class="scores__title">Твой баланс:</p>
+                            <p class="scores__text">50 баллов</p>
+                        </div>
+                        <div class="scores__bag">
+                            <img class="bag" src="src/images/bag.svg">
+                        </div>
+                    </div>
+                  </div>
+                  <div class="modal__colors">
+                    <div class="colors__title">
+                        Цвета:
+                    </div>
+                    <div class="modal-wrapper__blocks colors">
+                        <div class="colors__items">
+                            <input type="radio" class="colors__item" id="radio-1" name="colors">
+                            <label for="radio-1" class="colors__label colors__blue">Синий</label>
+
+                            <input type="radio" class="colors__item" id="radio-2" name="colors">
+                            <label for="radio-2" class="colors__label colors__beige">Бежевый</label>
+
+                            <input type="radio" class="colors__item" id="radio-3" name="colors">
+                            <label for="radio-3" class="colors__label colors__grey">Серый</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-wrapper__blocks size">
+                    <h5 class="size__title">Размер:</h5>
+                    <div class="size__items">
+                        <input type="radio" class="size__input" id="size-1" name="size">
+                        <label for="size-1" class="size__label">S</label>
+
+                        <input type="radio" class="size__input" id="size-2" name="size">
+                        <label for="size-2" class="size__label">M</label>
+
+                        <input type="radio" class="size__input" id="size-3" name="size">
+                        <label for="size-3" class="size__label">L</label>
+                    </div>
+                </div>
+                <div class="modal-wrapper__blocks">
+                    <h5 class="modal-wrapper__details">Детали:</h5>
+                    <p>Брендированная толстовка от Qazaq Republic. Материал: Хлопок 80%, Вискоза 20%</p>
+                </div>
+                <div class="modal-wrapper__blocks">
+                    <h5 class="modal-wrapper__question">Как выбрать размер:</h5>
+                    <p>Написать дяде Рику для уточнения.</p>
+                </div>
+              </div>
+            </div> 
+        </div>
     </div>
+    <script type ="module" src="/src/js/main.js"></script>
 </body>
 </html>
 

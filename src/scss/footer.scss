@@ -1,46 +1,78 @@
 .footer {
-    background-color: #1c1819;
-    color: #fff;
-    display: grid;
-    grid-area: footer;
-    grid-template: 1fr / 1fr 915px minmax(auto, 300px) minmax(auto, 150px) 1fr;
-    padding: 20px 0 20px;
-    align-items: center;
-}
+    background-color: $dark;
 
-.footer__left {
-    grid-column: 2 / 3;
-}
+    &__wrapper {
+        @include flex;
 
-.footer__copyright {
-    font-size: 16px;
-}
+        justify-content: space-between;
+    }
 
-.footer__social {
-    display: flex;
-    margin-top: 8px;
-}
+    &__left {
+        padding: 20px 0 24px 32px;
+    }
 
-.footer__content {
-    grid-column: 3 / 4;
-}
+    &__copyright {
+        @include main-text;
 
-.footer__button {
-    width: 100%;
-    background: #fff;
-    border-radius: 8px;
-    color: #2a81dd;
-    min-height: 36px;
-    border: 1px solid #1c1819;
-    transition: all ease 0.5s;
-}
+        margin-bottom: 14px;
+        color: $white;
+    }
 
-.footer__button:hover {
-    background: #1c1819;
-    color: #fff;
-    border: 1px solid #fff;
-}
+    &__social {
+        @include flex;
 
-.socials__link {
-    margin-right: 14px;
+        gap: 14px;
+    }
+
+    &__social-link {
+        transition: all 0.3s ease;
+
+        &:hover {
+            transform: scale(1.3);
+        }
+    }
+
+    &__item-icon {
+        width: 24px;
+        height: 24px;
+    }
+
+    &__right {
+        @include flex;
+
+        justify-content: center;
+        align-items: center;
+        gap: 52px;
+    }
+
+    &__content-item {
+        @include flex;
+        @include secondary-text;
+
+        flex-direction: column;
+        color: $white;
+        cursor: pointer;
+
+        &:hover {
+            color: $blue;
+        }
+    }
+
+    &__button {
+        border-radius: 8px;
+        width: 150px;
+        height: 36px;
+        background: $white;
+        box-shadow: 0 2px 4px rgba(28, 24, 25, 0.1);
+        color: $blue;
+        min-height: 36px;
+        border: 1px solid $dark;
+        transition: all ease 0.5s;
+
+        &:hover {
+            background: $dark;
+            color: $white;
+            border: 1px solid $white;
+        }
+    }
 }

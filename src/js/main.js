@@ -1,5 +1,10 @@
-import '../css/style.css';
+import '../scss/style.scss';
 
-document.querySelector('#app').innerHTML = `
-  <h1>Hello, Akmaral Ongarova!</h1>
-`;
+const search = document.querySelector('.search__mini');
+const btn = document.querySelector('.search__mini__button');
+const input = document.querySelector('.search__mini_input');
+
+btn.addEventListener('click', () => {
+    search.classList.toggle('active');
+    input.focus();
+});
