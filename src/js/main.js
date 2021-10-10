@@ -7,7 +7,8 @@ const clothes = [
         price: 5500,
         isNew: true,
         img:   '/src/images/photo_tovara.jpg',
-        type:  'clothes',
+
+        details: 'Черная удобная футболка',
     },
     {
         id:    1,
@@ -15,7 +16,8 @@ const clothes = [
         price: 7000,
         isNew: true,
         img:   '/src/images/skirt.jpeg',
-        type:  'clothes',
+
+        details: 'Школьная черная юбка',
     },
     {
         id:    2,
@@ -23,7 +25,8 @@ const clothes = [
         price: 8999,
         isNew: false,
         img:   '/src/images/swimsuit.jpeg',
-        type:  'clothes',
+
+        details: 'Школьная черная юбка',
     },
     {
         id:    3,
@@ -31,7 +34,8 @@ const clothes = [
         price: 6550,
         isNew: false,
         img:   '/src/images/dress.jpeg',
-        type:  'clothes',
+
+        details: 'Зеленое красивое платье',
     },
     {
         id:    4,
@@ -39,7 +43,8 @@ const clothes = [
         price: 7500,
         isNew: false,
         img:   '/src/images/белая_кофта.jpg',
-        type:  'clothes',
+
+        details: 'Белая хлопковая кофта',
     },
     {
         id:    5,
@@ -47,7 +52,8 @@ const clothes = [
         price: 7990,
         isNew: false,
         img:   '/src/images/черная_кофта.jpg',
-        type:  'clothes',
+
+        details: 'Черная хлопковая кофта',
     },
 ];
 
@@ -58,6 +64,8 @@ const accessories = [
         price: 699,
         isNew: true,
         img:   '/src/images/bead.jpeg',
+
+        details: 'Красивое серебренное ожерелье',
     },
     {
         id:    7,
@@ -65,6 +73,8 @@ const accessories = [
         price: 550,
         isNew: true,
         img:   '/src/images/umbrella.jpeg',
+
+        details: 'Прочный зеленый зонтик',
     },
     {
         id:    8,
@@ -72,6 +82,8 @@ const accessories = [
         price: 933,
         isNew: false,
         img:   '/src/images/backpack.jpeg',
+
+        details: 'Серый красивый рюкзак',
     },
     {
         id:    9,
@@ -79,6 +91,8 @@ const accessories = [
         price: 998,
         isNew: false,
         img:   '/src/images/cap.jpeg',
+
+        details: 'Супер модная кепка',
     },
     {
         id:    10,
@@ -86,6 +100,8 @@ const accessories = [
         price: 2000,
         isNew: false,
         img:   '/src/images/бутылка.jpg',
+
+        details: 'Пластиковая Бутылка',
     },
     {
         id:    11,
@@ -93,6 +109,8 @@ const accessories = [
         price: 3999,
         isNew: false,
         img:   '/src/images/синий_рюкзак.jpg',
+
+        details: 'Синий прочный рюкзак',
     },
 ];
 
@@ -100,7 +118,7 @@ const goodslist = [...clothes, ...accessories];
 
 // const changedGoodsList = [];
 
-const makeProductCard = (title, image, price, isNew, id) => `<div class="product__item card">
+const makeProductCard = (title, image, price, isNew, id) => `<div data-id="${id}" class="product__item card">
     <div class="card__image-wrap">
         <img src="${image}" width="330" height="330" alt="">
         ${isNew ? '<span class="card__badge">New</span>' : ''}
@@ -119,7 +137,7 @@ const makeProductCard = (title, image, price, isNew, id) => `<div class="product
             Заказать
         </button>
     </div>
-    </div>`;
+</div>`;
 
 const renderGoods = (list) => {
     const wrapper = document.createElement('div');
@@ -138,10 +156,7 @@ const renderGoods = (list) => {
     });
 };
 
-// renderGoods(goodslist);
-
 document.querySelectorAll('.js__category-button')
-
     .forEach((button) => {
         button.addEventListener('click', () => {
             if (!button.classList.contains('category__item--active')) {
@@ -159,9 +174,25 @@ document.querySelectorAll('.js__category-button')
             } else if (categoryKey === 'clothes') {
                 renderGoods(clothes);
             }
-
-            const filteredList = goodslist.filter(good => good.type === categoryKey);
-
-            renderGoods(filteredList);
         });
     });
+
+document.querySelector('.js__category-button').click();
+
+function openmodal() {
+    document.querySelector('.modal-main-wrap').classList.add('modal-main-wrap--active');
+}
+
+document.querySelectorAll('[data-id]').forEach((item) => {
+    item.addEventListener('click', () => {
+        openmodal(item.dataset.id);
+    });
+});
+
+function closemodal() {
+    document.querySelector('.modal-main-wrap').classList.remove('modal-main-wrap--active');
+}
+
+document.querySelector('.modal-wrapper__btn').addEventListener('click', () => {
+    closemodal();
+});
