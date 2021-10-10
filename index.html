@@ -6,7 +6,6 @@
     <title>Grid</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
     <div id="app">
@@ -72,147 +71,13 @@
                             <button type="button" class="questions__get-scores questions__item_how">Как получить баллы</button>
                             <button type="button" class="questions__get-scores questions__item_gift">Подарить баллы</button>
                         </div>
-                        <div class="main__tabs tabs">
-                            <button type="button" class="tabs__item active">Все товары</button>
-                            <button type="button" class="tabs__item">Одежда</button>
-                            <button type="button" class="tabs__item">Аксессуары</button>
+                        <div class="main__tabs category">
+                            <button data-type="all" type="button" class="js__category-button category__item category__item--active">Все товары</button>
+                            <button data-type="clothes" type="button" class="js__category-button category__item">Одежда</button>
+                            <button data-type="accessories" type="button" class="js__category-button category__item">Аксессуары</button>
                         </div>
-                        <div class="main__product product">
-                            <div class="product__card">
-                                <div class="product__card-image">
-                                    <img src="/src/images/photo_tovara.jpg">
-                                    <span class="product__label">New</span>
-                                </div>
-                                <div class="product__card-info">
-                                    <p class="product__balance-number">220 баллов</p>
-                                    <p class="product__item-name">Футболка "Эволюционируй или умри</p>
-                                    <p class="product__item-size">Размеры S/M/L</p>
-                                    <button class="product__order-btn">Заказать</button>
-                                </div>
-                            </div>
-                            <div class="product__card">
-                                <div class="product__card-image">
-                                    <img src="/src/images/photo_tovara.jpg">
-                                    <span class="product__label">New</span>
-                                </div>
-                                <div class="product__card-info">
-                                    <p class="product__balance-number">220 баллов</p>
-                                    <p class="product__item-name">Футболка "Эволюционируй или умри</p>
-                                    <p class="product__item-size">Размеры S/M/L</p>
-                                    <button class="product__order-btn">Заказать</button>
-                                </div>
-                            </div>
-                            <div class="product__card">
-                                <div class="product__card-image">
-                                    <img src="/src/images/photo_tovara.jpg">
-                                </div>
-                                <div class="product__card-info">
-                                    <p class="product__balance-number">220 баллов</p>
-                                    <p class="product__item-name">Футболка "Эволюционируй или умри</p>
-                                    <p class="product__item-size">Размеры S/M/L</p>
-                                    <button class="product__order-btn">Заказать</button>
-                                </div>
-                            </div>
-                            <div class="product__card">
-                                <div class="product__card-image">
-                                    <img src="/src/images/photo_tovara.jpg">
-                                </div>
-                                <div class="product__card-info">
-                                    <p class="product__balance-number">220 баллов</p>
-                                    <p class="product__item-name">Футболка "Эволюционируй или умри</p>
-                                    <p class="product__item-size">Размеры S/M/L</p>
-                                    <button class="product__order-btn">Заказать</button>
-                                </div>
-                            </div>
-                            <div class="product__card">
-                                <div class="product__card-image">
-                                    <img src="/src/images/photo_tovara.jpg">
-                                </div>
-                                <div class="product__card-info">
-                                    <p class="product__balance-number">220 баллов</p>
-                                    <p class="product__item-name">Футболка "Эволюционируй или умри</p>
-                                    <p class="product__item-size">Размеры S/M/L</p>
-                                    <button class="product__order-btn">Заказать</button>
-                                </div>
-                            </div>
-                            <div class="product__card">
-                                <div class="product__card-image">
-                                    <img src="/src/images/photo_tovara.jpg">
-                                </div>
-                                <div class="product__card-info">
-                                    <p class="product__balance-number">220 баллов</p>
-                                    <p class="product__item-name">Футболка "Эволюционируй или умри</p>
-                                    <p class="product__item-size">Размеры S/M/L</p>
-                                    <button class="product__order-btn">Заказать</button>
-                                </div>
-                            </div>
-                            <div class="product__card">
-                                <div class="product__card-image">
-                                    <img src="/src/images/photo_tovara.jpg">
-                                </div>
-                                <div class="product__card-info">
-                                    <p class="product__balance-number">220 баллов</p>
-                                    <p class="product__item-name">Футболка "Эволюционируй или умри</p>
-                                    <p class="product__item-size">Размеры S/M/L</p>
-                                    <button class="product__order-btn">Заказать</button>
-                                </div>
-                            </div>
-                            <div class="product__card">
-                                <div class="product__card-image">
-                                    <img src="/src/images/photo_tovara.jpg">
-                                </div>
-                                <div class="product__card-info">
-                                    <p class="product__balance-number">220 баллов</p>
-                                    <p class="product__item-name">Футболка "Эволюционируй или умри</p>
-                                    <p class="product__item-size">Размеры S/M/L</p>
-                                    <button class="product__order-btn">Заказать</button>
-                                </div>
-                            </div>
-                            <div class="product__card">
-                                <div class="product__card-image">
-                                    <img src="/src/images/photo_tovara.jpg">
-                                </div>
-                                <div class="product__card-info">
-                                    <p class="product__balance-number">220 баллов</p>
-                                    <p class="product__item-name">Футболка "Эволюционируй или умри</p>
-                                    <p class="product__item-size">Размеры S/M/L</p>
-                                    <button class="product__order-btn">Заказать</button>
-                                </div>
-                            </div>
-                            <div class="product__card">
-                                <div class="product__card-image">
-                                    <img src="/src/images/photo_tovara.jpg">
-                                </div>
-                                <div class="product__card-info">
-                                    <p class="product__balance-number">220 баллов</p>
-                                    <p class="product__item-name">Футболка "Эволюционируй или умри</p>
-                                    <p class="product__item-size">Размеры S/M/L</p>
-                                    <button class="product__order-btn">Заказать</button>
-                                </div>
-                            </div>
-                            <div class="product__card">
-                                <div class="product__card-image">
-                                    <img src="/src/images/photo_tovara.jpg">
-                                </div>
-                                <div class="product__card-info">
-                                    <p class="product__balance-number">220 баллов</p>
-                                    <p class="product__item-name">Футболка "Эволюционируй или умри</p>
-                                    <p class="product__item-size">Размеры S/M/L</p>
-                                    <button class="product__order-btn">Заказать</button>
-                                </div>
-                            </div>
-                            <div class="product__card">
-                                <div class="product__card-image">
-                                    <img src="/src/images/photo_tovara.jpg">
-                                </div>
-                                <div class="product__card-info">
-                                    <p class="product__balance-number">220 баллов</p>
-                                    <p class="product__item-name">Футболка "Эволюционируй или умри</p>
-                                    <p class="product__item-size">Размеры S/M/L</p>
-                                    <button class="product__order-btn">Заказать</button>
-                                </div>
-                            </div>
-                           
+                        <div class="js__catalog">
+                            <!-- Контейнер для рендеринга карточек товара -->
                         </div> 
                     </div>
                 </div>
@@ -247,7 +112,7 @@
                 </div>
             </div>
         </footer>
-        <div class="modal-window-wrap">
+        <!-- <div class="modal-window-wrap">
             <div class="modal-wrapper">
               <button class="modal-wrapper__btn"></button>
               <div class="images">
@@ -319,7 +184,7 @@
                 </div>
               </div>
             </div> 
-        </div>
+        </div> -->
     </div>
     <script type ="module" src="/src/js/main.js"></script>
 </body>
