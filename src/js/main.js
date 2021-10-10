@@ -1,6 +1,6 @@
 import '../scss/style.scss';
 
-const goodslist = [
+const clothes = [
     {
         id:    0,
         title: 'Классная футболка',
@@ -49,13 +49,15 @@ const goodslist = [
         img:   '/src/images/черная_кофта.jpg',
         type:  'clothes',
     },
+];
+
+const accessories = [
     {
         id:    6,
         title: 'Ожерелье',
         price: 699,
         isNew: true,
         img:   '/src/images/bead.jpeg',
-        type:  'accessories',
     },
     {
         id:    7,
@@ -63,7 +65,6 @@ const goodslist = [
         price: 550,
         isNew: true,
         img:   '/src/images/umbrella.jpeg',
-        type:  'accessories',
     },
     {
         id:    8,
@@ -71,7 +72,6 @@ const goodslist = [
         price: 933,
         isNew: false,
         img:   '/src/images/backpack.jpeg',
-        type:  'accessories',
     },
     {
         id:    9,
@@ -79,7 +79,6 @@ const goodslist = [
         price: 998,
         isNew: false,
         img:   '/src/images/cap.jpeg',
-        type:  'accessories',
     },
     {
         id:    10,
@@ -87,7 +86,6 @@ const goodslist = [
         price: 2000,
         isNew: false,
         img:   '/src/images/бутылка.jpg',
-        type:  'accessories',
     },
     {
         id:    11,
@@ -95,13 +93,14 @@ const goodslist = [
         price: 3999,
         isNew: false,
         img:   '/src/images/синий_рюкзак.jpg',
-        type:  'accessories',
     },
 ];
 
+const goodslist = [...clothes, ...accessories];
+
 // const changedGoodsList = [];
 
-const makeProductCard = (title, image, price, isNew) => `<div class="product__item card">
+const makeProductCard = (title, image, price, isNew, id) => `<div class="product__item card">
     <div class="card__image-wrap">
         <img src="${image}" width="330" height="330" alt="">
         ${isNew ? '<span class="card__badge">New</span>' : ''}
@@ -116,7 +115,7 @@ const makeProductCard = (title, image, price, isNew) => `<div class="product__it
         <div class="card__misc">
             Размеры S/M/L
         </div>
-        <button class="card__button">
+        <button data-id=${id} class="card__button">
             Заказать
         </button>
     </div>
@@ -129,9 +128,9 @@ const renderGoods = (list) => {
     wrapper.className = 'main__product';
     sortedList.forEach((card) => {
         const {
-            title, price, isNew, img,
+            title, price, isNew, img, id,
         } = card;
-        const cardHtml = makeProductCard(title, img, price, isNew);
+        const cardHtml = makeProductCard(title, img, price, isNew, id);
 
         wrapper.innerHTML += cardHtml;
 
@@ -139,30 +138,26 @@ const renderGoods = (list) => {
     });
 };
 
-renderGoods(goodslist);
-
-// accessories.forEach((card) => {
-//     const {
-//         title, price, isNew, img,
-//     } = card;
-//     const cardHtml = makeProductCard(title, img, price, isNew);
-
-//     document.querySelector('.js__catalog').innerHTML += cardHtml;
-// });
+// renderGoods(goodslist);
 
 document.querySelectorAll('.js__category-button')
 
     .forEach((button) => {
         button.addEventListener('click', () => {
-            // const button = event.target;
-            button.classList.remove('category__item--active');
-            button.classList.add('category__item--active');
+            if (!button.classList.contains('category__item--active')) {
+                // eslint-disable-next-line max-len
+                document.querySelectorAll('.js__category-button').forEach(btn => btn.classList.remove('category__item--active'));
+                button.classList.add('category__item--active');
+            }
+
             const categoryKey = button.getAttribute('data-type');
 
             if (categoryKey === 'all') {
                 renderGoods(goodslist);
-
-                return;
+            } else if (categoryKey === 'accessories') {
+                renderGoods(accessories);
+            } else if (categoryKey === 'clothes') {
+                renderGoods(clothes);
             }
 
             const filteredList = goodslist.filter(good => good.type === categoryKey);
