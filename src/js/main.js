@@ -196,3 +196,32 @@ function closemodal() {
 document.querySelector('.modal-wrapper__btn').addEventListener('click', () => {
     closemodal();
 });
+
+function openModal(id) {
+    let info;
+
+    goodslist.forEach((item) => {
+        // eslint-disable-next-line eqeqeq
+        if (item.id == id) {
+            info = item;
+        }
+    });
+    document.querySelector('.scores__left-title').textContent = info.price;
+    document.querySelector('.modal-wrapper__title').textContent = info.title;
+    document.querySelector('.images_element').src = info.img;
+    document.querySelector('.mmodal-main-wrap').classList.add('modal-main-wrap--active');
+}
+
+document.querySelectorAll('[data-id]').forEach((item) => {
+    item.addEventListener('click', () => {
+        openModal(item.dataset.id);
+    });
+});
+
+function closeModal() {
+    document.querySelector('.modal-main-wrap').classList.remove('modal-main-wrap--active');
+}
+
+document.querySelector('.modal-wrapper__btn').addEventListener('click', () => {
+    closeModal();
+});
