@@ -140,7 +140,7 @@ const updateModal = (id) => {
             modal.style.display = 'none';
         });
 
-    const containerNode = document.querySelector('.js__container'); // Находим узел контейнера для последующего удаления
+    const containerNode = document.querySelector('.js__modal-window-wrap'); // Находим узел контейнера для последующего удаления
 
     modal.removeChild(containerNode); // Удаляем контейнер, чтобы установить новый с обновленными данными
 
@@ -154,7 +154,7 @@ const updateModal = (id) => {
 };
 
 // Функция для отрисовки целой категории товаров
-const renderCategory = (list) => {
+const renderCategory = (category) => {
     const catalog = document.querySelector('.js__catalog');
 
     catalog.classList.add('main__product');
@@ -171,7 +171,7 @@ const renderCategory = (list) => {
         catalog.removeChild(catalog.lastChild); // Удаляем все элементы до тех пор, пока не останется чайлдов у каталога
     }
 
-    list.forEach((card) => {
+    category.forEach((card) => {
         const {
             img, title, price, isNew, id,
         } = card;
@@ -217,7 +217,7 @@ categoryButtons
     });
 
 // Данный код позволяет открывать модалку кликом по самой карточке
-document.querySelectorAll('.main_product')
+document.querySelectorAll('.js__card')
     .forEach((card) => {
         const { id } = card.dataset;
 
