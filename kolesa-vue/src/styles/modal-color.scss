@@ -1,0 +1,74 @@
+.colors {
+    &__items {
+        @include flex;
+
+        margin-top: 8px;
+        margin-bottom: 24px;
+    }
+
+    &__title {
+        @include secondary-text;
+
+        font-weight: 400;
+    }
+
+    &__item {
+        -webkit-appearance: none;
+        appearance: none;
+        display: none;
+
+        &:checked + .colors__label {
+            background-color: #d6ecfb;
+            border: 1px solid #d6ecfb;
+            color: $dark;
+        }
+    }
+
+    &__label {
+        @include flex;
+
+        border-radius: 8px;
+        justify-content: center;
+        align-items: center;
+        padding: 8px;
+        border: 1px solid rgba(28, 24, 25, 0.1);
+        margin-right: 8px;
+        color: $blue;
+    }
+
+    &__blue {
+        &::before {
+            border-radius: 4px;
+            content: '';
+            display: block;
+            width: 23px;
+            height: 24px;
+            margin-right: 8px;
+            background: $shirt-blue;
+        }
+    }
+
+    &__beige {
+        &::before {
+            border-radius: 4px;
+            content: '';
+            display: block;
+            width: 23px;
+            height: 24px;
+            margin-right: 8px;
+            background: $shirt-beige;
+        }
+    }
+
+    &__grey {
+        &::before {
+            border-radius: 4px;
+            content: '';
+            display: block;
+            width: 23px;
+            height: 24px;
+            margin-right: 8px;
+            background: $shirt-grey;
+        }
+    }
+}

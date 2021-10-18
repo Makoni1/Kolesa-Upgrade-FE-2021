@@ -1,0 +1,28 @@
+.main {
+    &__wrapper {
+        @include flex;
+
+        gap: 33px;
+    }
+
+    &__box {
+        max-width: 1038px;
+        width: 100%;
+        margin-top: 24px;
+        margin-bottom: 192px;
+    }
+
+    &__questions {
+        @include flex;
+
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 24px;
+    }
+
+    &__product {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+        column-gap: 24px;
+    }
+}
