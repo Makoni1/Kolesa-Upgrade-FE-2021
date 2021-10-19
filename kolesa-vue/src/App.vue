@@ -183,15 +183,10 @@
                       @click="openModal"
                       class="card__button"
                     >
-
                         Заказать
                     </button>
                 </div>
               </div>
-              <!-- <div class="card" v-for="item in clothes" :key="item.id">
-                  {{item.src}}
-                  <img :src="item.src" alt="" :id="item.id">
-              </div> -->
             </div>
           </div>
         </div>
@@ -240,12 +235,11 @@
         </div>
       </div>
     </footer>
-    <div :class="{show: isShowModal}"
-    class="modal-main-wrap js__modal">
-      <div class="overlay"></div>
+    <div v-if='isShowModal' class="modal-main-wrap js__modal">
+      <div @click="closeModal" class="overlay" />
       <div class="modal-window-wrap js__modal-window-wrap">
         <div class="modal-wrapper">
-          <button  @click="closeModal" class="modal-wrapper__btn js__close-button"></button>
+          <button @click="closeModal" class="modal-wrapper__btn js__close-button" />
           <div class="images">
             <img
               class="images_element"
@@ -483,6 +477,7 @@ export default {
   methods: {
     openModal() {
       this.isShowModal = true;
+      console.log(this.isShowModal);
     },
     closeModal() {
       this.isShowModal = false;
