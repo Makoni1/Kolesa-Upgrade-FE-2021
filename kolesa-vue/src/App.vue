@@ -154,12 +154,44 @@
                 Аксессуары
               </button>
             </div>
-            <div class="main_product js__catalog">
-              <!-- Контейнер для рендеринга карточек товара -->
-              <div class="card" v-for="item in clothes" :key="item.id">
+            <div
+              class="main__product js__catalog"
+            >
+              <div
+                data-id="item.id"
+                v-for="item in allItems"
+                :key="item.id"
+                class="product__item card"
+              >
+                <div class="card__image-wrap">
+                  <img
+                  :src="getImgUrl(item.image)" width="330" height="330"
+                  :alt="item.alt"/>
+                  <span v-if="item.isNew" class="card__badge">New</span>
+                </div>
+                <div class="card__info">
+                    <div class="card__price">
+                        {{item.price}} баллов
+                    </div>
+                    <div class="card__title">
+                        {{item.title}}
+                    </div>
+                    <div class="card__misc">
+                        Размеры S/M/L
+                    </div>
+                    <button
+                      @click="openModal"
+                      class="card__button"
+                    >
+
+                        Заказать
+                    </button>
+                </div>
+              </div>
+              <!-- <div class="card" v-for="item in clothes" :key="item.id">
                   {{item.src}}
                   <img :src="item.src" alt="" :id="item.id">
-              </div>
+              </div> -->
             </div>
           </div>
         </div>
@@ -337,13 +369,14 @@ export default {
   name: 'App',
   data() {
     return {
+      isShowModal: false,
       clothes: [
         {
           id: 0,
           title: 'Классная футболка',
           price: 5500,
           isNew: true,
-          img: '/src/images/photo_tovara.jpg',
+          image: 'photo_tovara.jpg',
           details: 'Черная удобная футболка',
         },
         {
@@ -351,7 +384,7 @@ export default {
           title: 'Черная юбка',
           price: 7000,
           isNew: true,
-          img: '/src/images/skirt.jpeg',
+          image: 'skirt.jpeg',
           details: 'Школьная черная юбка',
         },
         {
@@ -359,7 +392,7 @@ export default {
           title: 'Красный купальник',
           price: 8999,
           isNew: false,
-          img: '/src/images/swimsuit.jpeg',
+          image: 'swimsuit.jpeg',
           details: 'Школьная черная юбка',
         },
         {
@@ -367,7 +400,7 @@ export default {
           title: 'Зеленое платье',
           price: 6550,
           isNew: false,
-          img: '/src/images/dress.jpeg',
+          image: 'dress.jpeg',
           details: 'Зеленое красивое платье',
         },
         {
@@ -375,7 +408,7 @@ export default {
           title: 'Белая Кофта',
           price: 7500,
           isNew: false,
-          img: '/src/images/белая_кофта.jpg',
+          image: 'белая_кофта.jpg',
           details: 'Белая хлопковая кофта',
         },
         {
@@ -383,7 +416,7 @@ export default {
           title: 'Черная Кофта',
           price: 7990,
           isNew: false,
-          img: '/src/images/черная_кофта.jpg',
+          image: 'черная_кофта.jpg',
           details: 'Черная хлопковая кофта',
         },
       ],
@@ -393,7 +426,7 @@ export default {
           title: 'Ожерелье',
           price: 699,
           isNew: true,
-          img: '/src/images/bead.jpeg',
+          image: 'bead.jpeg',
           details: 'Красивое серебренное ожерелье',
         },
         {
@@ -401,7 +434,7 @@ export default {
           title: 'Прочный зонтик',
           price: 550,
           isNew: true,
-          img: '/src/images/umbrella.jpeg',
+          image: 'umbrella.jpeg',
           details: 'Прочный зеленый зонтик',
         },
         {
@@ -409,7 +442,7 @@ export default {
           title: 'Серый рюкзак',
           price: 933,
           isNew: false,
-          img: '/src/images/backpack.jpeg',
+          image: 'backpack.jpeg',
           details: 'Серый красивый рюкзак',
         },
         {
@@ -417,7 +450,7 @@ export default {
           title: 'Шапка',
           price: 998,
           isNew: false,
-          img: '/src/images/cap.jpg',
+          image: 'cap.jpg',
           details: 'Супер модная шапка',
         },
         {
@@ -425,7 +458,7 @@ export default {
           title: 'Бутылка',
           price: 2000,
           isNew: false,
-          img: '/src/images/бутылка.jpg',
+          image: 'бутылка.jpg',
           details: 'Пластиковая Бутылка',
         },
         {
@@ -433,7 +466,7 @@ export default {
           title: 'Синий рюкзак',
           price: 3999,
           isNew: false,
-          img: '/src/images/синий_рюкзак.jpg',
+          image: 'синий_рюкзак.jpg',
           details: 'Синий прочный рюкзак',
         },
       ],
@@ -453,6 +486,10 @@ export default {
     },
     closeModal() {
       this.isShowModal = false;
+    },
+    getImgUrl(item) {
+    // eslint-disable-next-line global-require,import/no-dynamic-require,import/extensions
+      return require(`./assets/images/${item}`);
     },
   },
 };
