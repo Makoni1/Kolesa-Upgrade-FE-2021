@@ -102,71 +102,35 @@
           </aside>
           <div class="main__box">
             <div class="banner">
-              <img
-                class="banner__img-big"
-                src="./assets/images/banner.jpg"
-                alt="Баннер"
-              />
+              <img class="banner__img-big" src="./assets/images/banner.jpg" alt="Баннер"/>
             </div>
             <div class="main__questions questions">
-              <button
-                type="button"
-                class="questions__get-scores questions__item_take"
-              >
+              <button type="button" class="questions__get-scores questions__item_take">
                 Получить баллы
               </button>
-              <button
-                type="button"
-                class="questions__get-scores questions__item_how"
-              >
+              <button type="button" class="questions__get-scores questions__item_how">
                 Как получить баллы
               </button>
-              <button
-                type="button"
-                class="questions__get-scores questions__item_gift"
-              >
+              <button type="button" class="questions__get-scores questions__item_gift">
                 Подарить баллы
               </button>
             </div>
             <div class="main__tabs category">
               <button
-                data-type="all"
-                type="button"
-                class="
-                  js__category-button
-                  category__item category__item--active
-                "
-              >
-                Все товары
-              </button>
-              <button
-                data-type="clothes"
-                type="button"
-                class="js__category-button category__item"
-              >
-                Одежда
-              </button>
-              <button
-                data-type="accessories"
-                type="button"
-                class="js__category-button category__item"
-              >
-                Аксессуары
+                v-for="tab in tabs" :key="tab.value"
+                :class="{ 'category__item--active': tab.value === activeTab }"
+                @click="sortTabs(tab)"
+                data-id="all" type="button"
+                class="js__category-button category__item">
+                {{tab.name}}
               </button>
             </div>
-            <div
-              class="main__product js__catalog"
-            >
+            <div class="main__product js__catalog">
               <div
-                data-id="item.id"
-                v-for="item in allItems"
-                :key="item.id"
-                class="product__item card"
-              >
+                v-for="item in filterProducts" :key="item.id"
+                class="product__item card">
                 <div class="card__image-wrap">
-                  <img
-                  :src="getImgUrl(item.image)" width="330" height="330"
-                  :alt="item.alt"/>
+                  <img :src="item.img" :alt="item.alt" width="330" height="330" />
                   <span v-if="item.isNew" class="card__badge">New</span>
                 </div>
                 <div class="card__info">
@@ -179,10 +143,7 @@
                     <div class="card__misc">
                         Размеры S/M/L
                     </div>
-                    <button
-                      @click="openModal"
-                      class="card__button"
-                    >
+                    <button @click="openModal" class="card__button">
                         Заказать
                     </button>
                 </div>
@@ -245,8 +206,7 @@
               class="images_element"
               src="./assets/images/product.jpg"
               alt="футболка"
-              width="330"
-              height="330"
+              width="330" height="330"
             />
             <div class="images__items">
               <img class="images__item" src="./assets/images/type1.png" />
@@ -280,63 +240,27 @@
               <div class="colors__title">Цвета:</div>
               <div class="modal-wrapper__blocks colors">
                 <div class="colors__items">
-                  <input
-                    type="radio"
-                    class="colors__item"
-                    id="radio-1"
-                    name="colors"
-                  />
-                  <label for="radio-1" class="colors__label colors__blue"
-                    >Синий</label
-                  >
+                  <input type="radio" class="colors__item" id="radio-1" name="colors"/>
+                  <label for="radio-1" class="colors__label colors__blue">Синий</label>
 
-                  <input
-                    type="radio"
-                    class="colors__item"
-                    id="radio-2"
-                    name="colors"
-                  />
-                  <label for="radio-2" class="colors__label colors__beige"
-                    >Бежевый</label
-                  >
+                  <input type="radio" class="colors__item" id="radio-2" name="colors"/>
+                  <label for="radio-2" class="colors__label colors__beige">Бежевый</label>
 
-                  <input
-                    type="radio"
-                    class="colors__item"
-                    id="radio-3"
-                    name="colors"
-                  />
-                  <label for="radio-3" class="colors__label colors__grey"
-                    >Серый</label
-                  >
+                  <input type="radio" class="colors__item" id="radio-3" name="colors"/>
+                  <label for="radio-3" class="colors__label colors__grey">Серый</label>
                 </div>
               </div>
             </div>
             <div class="modal-wrapper__blocks size">
               <h5 class="size__title">Размер:</h5>
               <div class="size__items">
-                <input
-                  type="radio"
-                  class="size__input"
-                  id="size-1"
-                  name="size"
-                />
+                <input type="radio" class="size__input" id="size-1" name="size"/>
                 <label for="size-1" class="size__label">S</label>
 
-                <input
-                  type="radio"
-                  class="size__input"
-                  id="size-2"
-                  name="size"
-                />
+                <input type="radio" class="size__input" id="size-2" name="size"/>
                 <label for="size-2" class="size__label">M</label>
 
-                <input
-                  type="radio"
-                  class="size__input"
-                  id="size-3"
-                  name="size"
-                />
+                <input type="radio" class="size__input" id="size-3" name="size"/>
                 <label for="size-3" class="size__label">L</label>
               </div>
             </div>
@@ -359,151 +283,59 @@
 </template>
 
 <script>
+import clothes from './clothes';
+import accessories from './accessories';
+
+const allGoods = clothes.concat(accessories).sort((good) => (good.isNew ? -1 : 1));
+const newClothes = clothes.sort((good) => (good.isNew ? -1 : 1));
+const newAccessories = accessories.sort((good) => (good.isNew ? -1 : 1));
+
 export default {
   name: 'App',
   data() {
     return {
       isShowModal: false,
-      clothes: [
-        {
-          id: 0,
-          title: 'Классная футболка',
-          price: 5500,
-          isNew: true,
-          image: 'photo_tovara.jpg',
-          details: 'Черная удобная футболка',
-        },
-        {
-          id: 1,
-          title: 'Черная юбка',
-          price: 7000,
-          isNew: true,
-          image: 'skirt.jpeg',
-          details: 'Школьная черная юбка',
-        },
-        {
-          id: 2,
-          title: 'Красный купальник',
-          price: 8999,
-          isNew: false,
-          image: 'swimsuit.jpeg',
-          details: 'Школьная черная юбка',
-        },
-        {
-          id: 3,
-          title: 'Зеленое платье',
-          price: 6550,
-          isNew: false,
-          image: 'dress.jpeg',
-          details: 'Зеленое красивое платье',
-        },
-        {
-          id: 4,
-          title: 'Белая Кофта',
-          price: 7500,
-          isNew: false,
-          image: 'белая_кофта.jpg',
-          details: 'Белая хлопковая кофта',
-        },
-        {
-          id: 5,
-          title: 'Черная Кофта',
-          price: 7990,
-          isNew: false,
-          image: 'черная_кофта.jpg',
-          details: 'Черная хлопковая кофта',
-        },
+      allGoods,
+      tabs: [
+        { name: 'Все товары', id: 1, value: 'allGoods' },
+        { name: 'Одежда', id: 2, value: 'clothes' },
+        { name: 'Аксессуары', id: 3, value: 'accessories' },
       ],
-      accessories: [
-        {
-          id: 6,
-          title: 'Ожерелье',
-          price: 699,
-          isNew: true,
-          image: 'bead.jpeg',
-          details: 'Красивое серебренное ожерелье',
-        },
-        {
-          id: 7,
-          title: 'Прочный зонтик',
-          price: 550,
-          isNew: true,
-          image: 'umbrella.jpeg',
-          details: 'Прочный зеленый зонтик',
-        },
-        {
-          id: 8,
-          title: 'Серый рюкзак',
-          price: 933,
-          isNew: false,
-          image: 'backpack.jpeg',
-          details: 'Серый красивый рюкзак',
-        },
-        {
-          id: 9,
-          title: 'Шапка',
-          price: 998,
-          isNew: false,
-          image: 'cap.jpg',
-          details: 'Супер модная шапка',
-        },
-        {
-          id: 10,
-          title: 'Бутылка',
-          price: 2000,
-          isNew: false,
-          image: 'бутылка.jpg',
-          details: 'Пластиковая Бутылка',
-        },
-        {
-          id: 11,
-          title: 'Синий рюкзак',
-          price: 3999,
-          isNew: false,
-          image: 'синий_рюкзак.jpg',
-          details: 'Синий прочный рюкзак',
-        },
-      ],
+      activeTab: 'allGoods',
+      sortedProducts: [],
     };
   },
   computed: {
-    allItems() {
-      return [...this.clothes, ...this.accessories];
-    },
-    isNew() {
-      return <span class="new">new</span>;
+    filterProducts() {
+      if (this.sortedProducts.length) {
+        return this.sortedProducts;
+      }
+      return this.allGoods;
     },
   },
   methods: {
     openModal() {
       this.isShowModal = true;
-      console.log(this.isShowModal);
     },
     closeModal() {
       this.isShowModal = false;
     },
-    getImgUrl(item) {
-    // eslint-disable-next-line global-require,import/no-dynamic-require,import/extensions
-      return require(`./assets/images/${item}`);
+    sortTabs(tab) {
+      this.activeTab = tab.value;
+      if (tab.value === 'clothes') {
+        this.sortedProducts = newClothes;
+        return;
+      }
+      if (tab.value === 'accessories') {
+        this.sortedProducts = newAccessories;
+        return;
+      }
+      this.sortedProducts = allGoods;
     },
   },
 };
 </script>
 
 <style lang="scss">
-@import "./styles/vars.scss";
-@import "./styles/reset.scss";
-@import "./styles/header.scss";
-@import "./styles/sidebar.scss";
-@import "./styles/main.scss";
-@import "./styles/footer.scss";
-@import "./styles/card.scss";
-@import "./styles/layouts.scss";
-@import "./styles/questions.scss";
-@import "./styles/tabs.scss";
-@import "./styles/modal-window.scss";
-@import "./styles/modal-images.scss";
-@import "./styles/modal-color.scss";
-@import "./styles/modal-scores.scss";
-@import "./styles/modal-sizes.scss";
+@import "./styles/style.scss";
 </style>
