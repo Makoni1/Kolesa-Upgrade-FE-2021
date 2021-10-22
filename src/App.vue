@@ -1,0 +1,341 @@
+<template>
+  <div id="app">
+    <header class="header">
+      <div class="container">
+        <div class="header__wrapper">
+          <div class="header__left">
+            <button class="header__burger-btn">
+              <img
+                class="burger__img"
+                src="./assets/images/burger.svg"
+                alt="menu"
+              />
+            </button>
+            <a class="header__logo" href="#">
+              <img
+                class="header__logo-img"
+                src="./assets/images/header_logo.svg"
+                alt="Kolesa Logo"
+              />
+            </a>
+            <form class="header__form">
+              <input
+                type="text"
+                name="search"
+                class="header__input"
+                placeholder="Поиск"
+              />
+              <button class="header__search" type="button">
+                <img
+                  class="header__img"
+                  src="./assets/images/search-big.svg"
+                  alt="Поиск"
+                />
+              </button>
+            </form>
+          </div>
+          <div class="header__right">
+            <button class="header__user" type="button">
+              <img
+                class="header__user-image"
+                src="./assets/images/user-img.png"
+                alt="User-image"
+              />
+              <div class="header__user-descr">
+                <h3 class="header__username">Мортиджан</h3>
+                <p class="header__userscores">300 баллов</p>
+              </div>
+            </button>
+          </div>
+          <form class="header__right-search">
+            <input
+              class="header__right-input"
+              type="text"
+              placeholder="Поиск"
+            />
+            <button class="header__right-btn" type="button">
+              <img
+                class="header__right-img"
+                src="./assets/images/search-icon.svg"
+                alt="Поиск"
+              />
+            </button>
+          </form>
+        </div>
+      </div>
+    </header>
+    <main class="main">
+      <div class="container">
+        <div class="main__wrapper">
+          <aside class="sidebar">
+            <nav class="menu">
+              <ul class="menu__list">
+                <li class="menu__list-item">
+                  <a href="#" class="menu__list-link">Оргсхема</a>
+                </li>
+                <li class="menu__list-item">
+                  <a href="#" class="menu__list-link">Kolesa Team</a>
+                </li>
+                <li class="menu__list-item">
+                  <a href="#" class="menu__list-link active">Kolesa Shop</a>
+                </li>
+                <li class="menu__list-item">
+                  <a href="#" class="menu__list-link">Картина компании</a>
+                </li>
+                <li class="menu__list-item">
+                  <a href="#" class="menu__list-link">Новости</a>
+                </li>
+                <li class="menu__list-item">
+                  <a href="#" class="menu__list-link">Education</a>
+                </li>
+                <li class="menu__list-item">
+                  <a href="#" class="menu__list-link">Guidelines</a>
+                </li>
+                <li class="menu__list-item">
+                  <a href="#" class="menu__list-link">Библиотека</a>
+                </li>
+                <li class="menu__list-item">
+                  <a href="#" class="menu__list-link">FAQ</a>
+                </li>
+              </ul>
+            </nav>
+          </aside>
+          <div class="main__box">
+            <div class="banner">
+              <img class="banner__img-big" src="./assets/images/banner.jpg" alt="Баннер"/>
+            </div>
+            <div class="main__questions questions">
+              <button type="button" class="questions__get-scores questions__item_take">
+                Получить баллы
+              </button>
+              <button type="button" class="questions__get-scores questions__item_how">
+                Как получить баллы
+              </button>
+              <button type="button" class="questions__get-scores questions__item_gift">
+                Подарить баллы
+              </button>
+            </div>
+            <div class="main__tabs category">
+              <button
+                v-for="tab in tabs" :key="tab.value"
+                :class="{ 'category__item--active': tab.value === activeTab }"
+                @click="sortTabs(tab)"
+                data-id="all" type="button"
+                class="js__category-button category__item">
+                {{tab.name}}
+              </button>
+            </div>
+            <div class="main__product js__catalog">
+              <div
+                v-for="item in filterProducts" :key="item.id"
+                class="product__item card">
+                <div class="card__image-wrap">
+                  <img :src="item.img" :alt="item.alt" width="330" height="330" />
+                  <span v-if="item.isNew" class="card__badge">New</span>
+                </div>
+                <div class="card__info">
+                    <div class="card__price">
+                        {{item.price}} баллов
+                    </div>
+                    <div class="card__title">
+                        {{item.title}}
+                    </div>
+                    <div class="card__misc">
+                        Размеры S/M/L
+                    </div>
+                    <button @click="openModal" class="card__button">
+                        Заказать
+                    </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer class="footer">
+      <div class="container">
+        <div class="footer__wrapper">
+          <div class="footer__left">
+            <p class="footer__copyright">© Kolesa Group</p>
+            <div class="footer__social">
+              <a class="footer__social-link" href="https://www.instagram.com/">
+                <img
+                  class="footer__item-icon"
+                  src="./assets/images/insta.svg"
+                  alt="instagram"
+                />
+              </a>
+              <a class="footer__social-link" href="https://www.youtube.com/">
+                <img
+                  class="footer__item-icon"
+                  src="./assets/images/youtube.svg"
+                  alt="youtube"
+                />
+              </a>
+              <a class="footer__social-link" href="https://www.vk.com/">
+                <img
+                  class="footer__item-icon"
+                  src="./assets/images/vk.svg"
+                  alt="vkontakte"
+                />
+              </a>
+            </div>
+          </div>
+          <div class="footer__right">
+            <div class="footer__content">
+              <p class="footer__content-item">Есть идеи что улучшить?</p>
+              <p class="footer__content-item">
+                Не знаешь, с кем решить проблему?
+              </p>
+            </div>
+            <div class="footer__btn">
+              <button type="button" class="footer__button">Написать</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <div v-if='isShowModal' class="modal-main-wrap js__modal">
+      <div @click="closeModal" class="overlay" />
+      <div class="modal-window-wrap js__modal-window-wrap">
+        <div class="modal-wrapper">
+          <button @click="closeModal" class="modal-wrapper__btn js__close-button" />
+          <div class="images">
+            <img
+              class="images_element"
+              src="./assets/images/product.jpg"
+              alt="футболка"
+              width="330" height="330"
+            />
+            <div class="images__items">
+              <img class="images__item" src="./assets/images/type1.png" />
+              <img
+                class="images__item active"
+                src="./assets/images/type2.png"
+              />
+              <img class="images__item" src="./assets/images/type3.png" />
+            </div>
+          </div>
+          <div class="modal-wrapper__desc">
+            <h3 class="modal-wrapper__title">
+              Футболка "Эволюционируй или сдохни"
+            </h3>
+            <div class="modal-wrapper__blocks scores">
+              <div class="scores__left">
+                <div class="scores__left-title">100 баллов</div>
+                <button class="scores__btn" type="button">Заказать</button>
+              </div>
+              <div class="scores__right">
+                <div class="scores-content">
+                  <p class="scores__title">Твой баланс:</p>
+                  <p class="scores__text">50 баллов</p>
+                </div>
+                <div class="scores__bag">
+                  <img class="bag" src="./assets/images/bag.svg" />
+                </div>
+              </div>
+            </div>
+            <div class="modal__colors">
+              <div class="colors__title">Цвета:</div>
+              <div class="modal-wrapper__blocks colors">
+                <div class="colors__items">
+                  <input type="radio" class="colors__item" id="radio-1" name="colors"/>
+                  <label for="radio-1" class="colors__label colors__blue">Синий</label>
+
+                  <input type="radio" class="colors__item" id="radio-2" name="colors"/>
+                  <label for="radio-2" class="colors__label colors__beige">Бежевый</label>
+
+                  <input type="radio" class="colors__item" id="radio-3" name="colors"/>
+                  <label for="radio-3" class="colors__label colors__grey">Серый</label>
+                </div>
+              </div>
+            </div>
+            <div class="modal-wrapper__blocks size">
+              <h5 class="size__title">Размер:</h5>
+              <div class="size__items">
+                <input type="radio" class="size__input" id="size-1" name="size"/>
+                <label for="size-1" class="size__label">S</label>
+
+                <input type="radio" class="size__input" id="size-2" name="size"/>
+                <label for="size-2" class="size__label">M</label>
+
+                <input type="radio" class="size__input" id="size-3" name="size"/>
+                <label for="size-3" class="size__label">L</label>
+              </div>
+            </div>
+            <div class="modal-wrapper__blocks">
+              <h5 class="modal-wrapper__details">Детали:</h5>
+              <p>
+                Брендированная толстовка от Qazaq Republic. Материал: Хлопок
+                80%, Вискоза 20%
+              </p>
+            </div>
+            <div class="modal-wrapper__blocks">
+              <h5 class="modal-wrapper__question">Как выбрать размер:</h5>
+              <p>Написать дяде Рику для уточнения.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+import clothes from './clothes';
+import accessories from './accessories';
+
+const allGoods = clothes.concat(accessories).sort((good) => (good.isNew ? -1 : 1));
+const newClothes = clothes.sort((good) => (good.isNew ? -1 : 1));
+const newAccessories = accessories.sort((good) => (good.isNew ? -1 : 1));
+
+export default {
+  name: 'App',
+  data() {
+    return {
+      isShowModal: false,
+      allGoods,
+      tabs: [
+        { name: 'Все товары', id: 1, value: 'allGoods' },
+        { name: 'Одежда', id: 2, value: 'clothes' },
+        { name: 'Аксессуары', id: 3, value: 'accessories' },
+      ],
+      activeTab: 'allGoods',
+      sortedProducts: [],
+    };
+  },
+  computed: {
+    filterProducts() {
+      if (this.sortedProducts.length) {
+        return this.sortedProducts;
+      }
+      return this.allGoods;
+    },
+  },
+  methods: {
+    openModal() {
+      this.isShowModal = true;
+    },
+    closeModal() {
+      this.isShowModal = false;
+    },
+    sortTabs(tab) {
+      this.activeTab = tab.value;
+      if (tab.value === 'clothes') {
+        this.sortedProducts = newClothes;
+        return;
+      }
+      if (tab.value === 'accessories') {
+        this.sortedProducts = newAccessories;
+        return;
+      }
+      this.sortedProducts = allGoods;
+    },
+  },
+};
+</script>
+
+<style lang="scss">
+@import "./styles/style.scss";
+</style>
