@@ -119,7 +119,9 @@
                         {{item.title}}
                     </div>
                     <div class="card__misc">
-                        Размеры S/M/L
+                      {{
+                        getFormatedText(item.sizes)
+                      }}
                     </div>
                     <button class="card__button" @click="openCard(item)">
                         Заказать
@@ -184,6 +186,7 @@
 </template>
 
 <script>
+import axios from './axios';
 import Modal from './components/Modal.vue';
 import Tabs from './components/Tabs.vue';
 import clothes from './clothes';
@@ -205,7 +208,6 @@ export default {
     return {
       search: 'Одежда D',
       isShowModal: false,
-      sortedProducts: [],
       allGoods,
       tabs: [
       { name: 'Все товары', id: 1, value: 'allGoods' },
@@ -213,6 +215,7 @@ export default {
       { name: 'Аксессуары', id: 3, value: 'accessories' },
       ],
       activeTab: 'allGoods',
+      sortedProducts: [],
       modalData: {},
       score: 500,
       cards: [
@@ -231,10 +234,34 @@ export default {
         return this.allGoods;
     },
   },
+  watch: {
+    score(oldValue, newValue) {
+      console.log('newValue', newValue);
+      console.log('oldValue', oldValue);
+      this.showCost();
+    },
+  },
   created() {
-    console.log(this.$$refs.header);
+    console.log(this.$refs.header);
+  },
+  mounted() {
+    axios.get('templates/-_RLsEGjof6i/data')
+      .then ((response) =>{
+        console.log(response)
+      });
+    // console.log(this.$refs.header);
   },
   methods: {
+    openCard(data) {
+      this.openModal();
+      this.modalData = data;
+    },
+    openModal() {
+      this.isShowModal = true;
+    },
+    closeModal() {
+      this.isShowModal = false;
+    },
     sortTabs(tab) {
       this.activeTab = tab.value;
       if (tab.value === 'clothes') {
@@ -247,22 +274,18 @@ export default {
       }
       this.sortedProducts = allGoods;
     },
-    openCard(data) {
-      this.openModal();
-      this.modalData = data;
-    },
-    openModal() {
-      this.isShowModal = true;
-    },
-    closeModal() {
-      this.isShowModal = false;
-    },
     setScore(cost) {
       this.closeModal();
       this.score -= cost;
     },
     setSearch(e) {
       this.search = e.target.value;
+    },
+    showCost() {
+      alert(this.score);
+    },
+    getFormatedText(sizes) {
+      return sizes && sizes.length ? `Размер ${String(sizes).replace(',', '')}` : '';
     },
   },
 };

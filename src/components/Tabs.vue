@@ -23,7 +23,7 @@ export default {
     name: 'Tabs',
     data() {
         return {
-            sortedProducts: [],
+            isShowModal: false,
             allGoods,
             tabs: [
             { name: 'Все товары', id: 1, value: 'allGoods' },
@@ -31,6 +31,7 @@ export default {
             { name: 'Аксессуары', id: 3, value: 'accessories' },
             ],
             activeTab: 'allGoods',
+            sortedProducts: [],
         };
     },
     computed: {

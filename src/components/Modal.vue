@@ -22,7 +22,7 @@
           </div>
           <div class="modal-wrapper__desc">
             <h3 class="modal-wrapper__title">
-             {{ data.title}}
+             {{ data.title }}
             </h3>
             <div class="modal-wrapper__blocks scores">
               <div class="scores__left">
