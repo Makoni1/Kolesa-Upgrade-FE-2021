@@ -54,39 +54,11 @@
     <main class="main">
       <div class="container">
         <div class="main__wrapper">
-          <aside class="sidebar">
-            <nav class="menu">
-              <ul class="menu__list">
-                <li class="menu__list-item">
-                  <a href="#" class="menu__list-link">Оргсхема</a>
-                </li>
-                <li class="menu__list-item">
-                  <a href="#" class="menu__list-link">Kolesa Team</a>
-                </li>
-                <li class="menu__list-item">
-                  <a href="#" class="menu__list-link active">Kolesa Shop</a>
-                </li>
-                <li class="menu__list-item">
-                  <a href="#" class="menu__list-link">Картина компании</a>
-                </li>
-                <li class="menu__list-item">
-                  <a href="#" class="menu__list-link">Новости</a>
-                </li>
-                <li class="menu__list-item">
-                  <a href="#" class="menu__list-link">Education</a>
-                </li>
-                <li class="menu__list-item">
-                  <a href="#" class="menu__list-link">Guidelines</a>
-                </li>
-                <li class="menu__list-item">
-                  <a href="#" class="menu__list-link">Библиотека</a>
-                </li>
-                <li class="menu__list-item">
-                  <a href="#" class="menu__list-link">FAQ</a>
-                </li>
-              </ul>
-            </nav>
-          </aside>
+          <Navbar
+            :nav-links="navLinks"
+            :active-link="activeLink"
+            @setActiveLink="changeActiveLink"
+          ></Navbar>
           <div class="main__box">
             <div class="banner">
               <img class="banner__img-big" src="./assets/images/banner.jpg" alt="Баннер"/>
@@ -125,6 +97,9 @@ import Modal from './components/Modal.vue';
 import Tabs from './components/Tabs.vue';
 import Card from './components/Card.vue';
 import Search from './components/Search.vue';
+import Buttons from './components/Buttons.vue';
+import Footer from './components/Footer.vue';
+import Navbar from './components/Navbar.vue';
 
 
 export default {
@@ -134,6 +109,9 @@ export default {
     Tabs,
     Card,
     Search,
+    Buttons,
+    Footer,
+    Navbar
   },
   data() {
     return {
@@ -248,7 +226,46 @@ export default {
           value: 'accessories' 
         },
       ],
+      navLinks: [
+        {
+          name: 'Оргсхема',
+          value: 'orgscheme',
+        },
+        {
+          name: 'Kolesa Team',
+          value: 'kolesa Team',
+        },
+        {
+          name: 'Kolesa Shop',
+          value: 'kolesa shop',
+        },
+        {
+          name: 'Картина компании',
+          value: 'company overview',
+        },
+        {
+          name: 'Новости',
+          value: 'news',
+        },
+        {
+          name: 'Education',
+          value: 'education',
+        },
+        {
+          name: 'Guidelines',
+          value: 'guidelines',
+        },
+        {
+          name: 'Библиотека',
+          value: 'library',
+        },
+        {
+          name: 'FAQ',
+          value: 'faq',
+        },
+      ],
       activeTab: 'all',
+      activeLink: 'shop',
       isShowModal: false,
       search: 'Одежда D',
       modalData: {},
@@ -304,6 +321,9 @@ export default {
     },
     changesortTabs(tab) {
       this.activeTab = tab.value;
+    },
+    changeActiveLink(link) {
+      this.activeLink = link.value;
     },
     setScore(cost) { 
       this.closeModal();

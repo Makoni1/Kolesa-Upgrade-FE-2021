@@ -8,21 +8,21 @@
               <a class="footer__social-link" href="https://www.instagram.com/">
                 <img
                   class="footer__item-icon"
-                  src="./assets/images/insta.svg"
+                  src="@/assets/images/insta.svg"
                   alt="instagram"
                 />
               </a>
               <a class="footer__social-link" href="https://www.youtube.com/">
                 <img
                   class="footer__item-icon"
-                  src="./assets/images/youtube.svg"
+                  src="@/assets/images/youtube.svg"
                   alt="youtube"
                 />
               </a>
               <a class="footer__social-link" href="https://www.vk.com/">
                 <img
                   class="footer__item-icon"
-                  src="./assets/images/vk.svg"
+                  src="@/assets/images/vk.svg"
                   alt="vkontakte"
                 />
               </a>
