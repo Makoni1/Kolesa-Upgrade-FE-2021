@@ -102,32 +102,18 @@
                 Подарить баллы
               </button>
             </div>
-            <tabs></tabs>
+            <Tabs
+              :tabs="tabs"
+              :activeTab="activeTab"
+              @sortTabs="changesortTabs"
+            ></Tabs>
             <div class="main__product js__catalog">
-              <div
-                v-for="item in filterProducts" :key="item.id"
-                class="product__item card">
-                <div class="card__image-wrap">
-                  <img :src="item.img" :alt="item.alt" width="330" height="330" />
-                  <span v-if="item.isNew" class="card__badge">New</span>
-                </div>
-                <div class="card__info">
-                    <div class="card__price">
-                        {{item.price}} баллов
-                    </div>
-                    <div class="card__title">
-                        {{item.title}}
-                    </div>
-                    <div class="card__misc">
-                      {{
-                        getFormatedText(item.sizes)
-                      }}
-                    </div>
-                    <button class="card__button" @click="openCard(item)">
-                        Заказать
-                    </button>
-                </div>
-              </div>
+              <Card
+                v-for="(item, index) in filterCategories"
+                :key="index"
+                :item="item"
+                @openCard="openCard"
+              ></Card>
             </div>
           </div>
         </div>
@@ -189,50 +175,156 @@
 import axios from './axios';
 import Modal from './components/Modal.vue';
 import Tabs from './components/Tabs.vue';
-import clothes from './clothes';
-import accessories from './accessories';
+import Card from './components/Card.vue';
 import Search from './components/Search.vue';
 
-const allGoods = clothes.concat(accessories).sort((good) => (good.isNew ? -1 : 1));
-const newClothes = clothes.sort((good) => (good.isNew ? -1 : 1));
-const newAccessories = accessories.sort((good) => (good.isNew ? -1 : 1));
 
 export default {
   name: 'App',
   components: {
     Modal,
     Tabs,
+    Card,
     Search,
   },
   data() {
     return {
-      search: 'Одежда D',
-      isShowModal: false,
-      allGoods,
-      tabs: [
-      { name: 'Все товары', id: 1, value: 'allGoods' },
-      { name: 'Одежда', id: 2, value: 'clothes' },
-      { name: 'Аксессуары', id: 3, value: 'accessories' },
+      clothes:[
+        {
+          id: 0,
+          title: 'Классная футболка',
+          price: 5500,
+          isNew: true,
+          img: './assets/images/photo_tovara.jpg',
+          details: 'Черная удобная футболка',
+        },
+        {
+          id: 1,
+          title: 'Черная юбка',
+          price: 7000,
+          isNew: true,
+          img: './assets/images/skirt.jpeg',
+          details: 'Школьная черная юбка',
+        },
+        {
+          id: 2,
+          title: 'Красный купальник',
+          price: 8999,
+          isNew: false,
+          img: './assets/images/swimsuit.jpeg',
+          details: 'Школьная черная юбка',
+        },
+        {
+          id: 3,
+          title: 'Зеленое платье',
+          price: 6550,
+          isNew: false,
+          img: './assets/images/dress.jpeg',
+          details: 'Зеленое красивое платье',
+        },
+        {
+          id: 4,
+          title: 'Белая Кофта',
+          price: 7500,
+          isNew: false,
+          img: './assets/images/белая_кофта.jpg',
+          details: 'Белая хлопковая кофта',
+        },
+        {
+          id: 5,
+          title: 'Черная Кофта',
+          price: 7990,
+          isNew: false,
+          img: './assets/images/черная_кофта.jpg',
+          details: 'Черная хлопковая кофта',
+        },
       ],
-      activeTab: 'allGoods',
-      sortedProducts: [],
+      accessories:[
+        {
+          id: 6,
+          title: 'Ожерелье',
+          price: 699,
+          isNew: true,
+          img: './assets/images/bead.jpeg',
+          details: 'Красивое серебренное ожерелье',
+        },
+        {
+          id: 7,
+          title: 'Прочный зонтик',
+          price: 550,
+          isNew: true,
+          img: './assets/images/umbrella.jpeg',
+          details: 'Прочный зеленый зонтик',
+        },
+        {
+          id: 8,
+          title: 'Серый рюкзак',
+          price: 933,
+          isNew: false,
+          img: './assets/images/backpack.jpeg',
+          details: 'Серый красивый рюкзак',
+        },
+        {
+          id: 9,
+          title: 'Шапка',
+          price: 998,
+          isNew: false,
+          img: './assets/images/cap.jpg',
+          details: 'Супер модная шапка',
+        },
+        {
+          id: 10,
+          title: 'Бутылка',
+          price: 2000,
+          isNew: false,
+          img: './assets/images/бутылка.jpg',
+          details: 'Пластиковая Бутылка',
+        },
+        {
+          id: 11,
+          title: 'Синий рюкзак',
+          price: 3999,
+          isNew: false,
+          img: './assets/images/синий_рюкзак.jpg',
+          details: 'Синий прочный рюкзак',
+        },
+      ],
+      tabs: [
+        { name: 'Все товары', 
+          value: 'all' 
+        },
+        { name: 'Одежда', 
+          value: 'clothes' 
+        },
+        { name: 'Аксессуары', 
+          value: 'accessories' 
+        },
+      ],
+      activeTab: 'all',
+      isShowModal: false,
+      search: 'Одежда D',
       modalData: {},
       score: 500,
-      cards: [
-        { id: 1, title: 'Одежда A', description: 'lorem'},
-        { id: 2, title: 'Одежда Б', description: 'Abay'},
-        { id: 3, title: 'Одежда С', description: 'Hello'},
-
-      ],
     }; 
   },
   computed: {
-    filterProducts() {
-        if (this.sortedProducts.length) {
-            return this.sortedProducts;
-        }
-        return this.allGoods;
-    },
+  allGoods() {
+    return [...this.clothes, ...this.accessories];
+  },
+  sortedProducts() {
+    return this.allGoods
+      .slice()
+      .sort((item) => (item.isNew ? -1 : 1));
+  },
+  filterCategories() {
+    if (this.activeTab === 'all') {
+      return this.sortedProducts;
+    }
+    if (this.activeTab === 'clothes') {
+      return this.clothes;
+    }
+    return this.accessories;
+  },
   },
   watch: {
     score(oldValue, newValue) {
@@ -252,9 +344,9 @@ export default {
     // console.log(this.$refs.header);
   },
   methods: {
-    openCard(data) {
+    openCard(item) {
       this.openModal();
-      this.modalData = data;
+      this.modalData = item;
     },
     openModal() {
       this.isShowModal = true;
@@ -262,19 +354,10 @@ export default {
     closeModal() {
       this.isShowModal = false;
     },
-    sortTabs(tab) {
+    changesortTabs(tab) {
       this.activeTab = tab.value;
-      if (tab.value === 'clothes') {
-          this.sortedProducts = newClothes;
-          return;
-      }
-      if (tab.value === 'accessories') {
-          this.sortedProducts = newAccessories;
-          return;
-      }
-      this.sortedProducts = allGoods;
     },
-    setScore(cost) {
+    setScore(cost) { 
       this.closeModal();
       this.score -= cost;
     },
