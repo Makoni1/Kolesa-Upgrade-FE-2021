@@ -1,56 +1,6 @@
 <template>
   <div id="app">
-    <header class="header">
-      <div class="container">
-        <div class="header__wrapper">
-          <div class="header__left">
-            <button class="header__burger-btn">
-              <img
-                class="burger__img"
-                src="./assets/images/burger.svg"
-                alt="menu"
-              />
-            </button>
-            <a class="header__logo" href="#">
-              <img
-                class="header__logo-img"
-                src="./assets/images/header_logo.svg"
-                alt="Kolesa Logo"
-              />
-            </a>
-          <search :search-value="search" @setSearch="setSearch"></search>
-          </div>
-          <div class="header__right">
-            <button class="header__user" type="button">
-              <img
-                class="header__user-image"
-                src="./assets/images/user-img.png"
-                alt="User-image"
-              />
-              <div class="header__user-descr">
-                <h3 class="header__username">Мортиджан</h3>
-                <p class="header__userscores">300 баллов</p>
-              </div>
-            </button>
-          </div>
-          <form class="header__right-search">
-            <input
-              class="header__right-input"
-              type="text"
-              v-model="search"
-              placeholder="Поиск"
-            />
-            <button class="header__right-btn" type="button">
-              <img
-                class="header__right-img"
-                src="./assets/images/search-icon.svg"
-                alt="Поиск"
-              />
-            </button>
-          </form>
-        </div>
-      </div>
-    </header>
+    <Header></Header>
     <main class="main">
       <div class="container">
         <div class="main__wrapper">
@@ -95,11 +45,11 @@
 import axios from './axios';
 import Modal from './components/Modal.vue';
 import Tabs from './components/Tabs.vue';
+import Navbar from './components/Navbar.vue';
 import Card from './components/Card.vue';
-import Search from './components/Search.vue';
 import Buttons from './components/Buttons.vue';
 import Footer from './components/Footer.vue';
-import Navbar from './components/Navbar.vue';
+import Header from './components/Header.vue';
 
 
 export default {
@@ -108,10 +58,10 @@ export default {
     Modal,
     Tabs,
     Card,
-    Search,
     Buttons,
     Footer,
-    Navbar
+    Navbar,
+    Header,
   },
   data() {
     return {
@@ -263,6 +213,11 @@ export default {
           name: 'FAQ',
           value: 'faq',
         },
+      ],
+      cards: [
+        { id: 1, title: 'Одежда A', description: 'lorem'},
+        { id: 2, title: 'Одежда Б', description: 'Abay'},
+        { id: 3, title: 'Одежда С', description: 'Hello'},
       ],
       activeTab: 'all',
       activeLink: 'shop',

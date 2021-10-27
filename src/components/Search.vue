@@ -1,9 +1,10 @@
 <template>
   <form class="header__form">
     <input
-      type="text"
       class="header__input" 
-      :value="searchValue" placeholder="Поиск"
+      type="text"
+      :value="searchValue" 
+      placeholder="Поиск"
       @input="$emit('setSearch', $event)"
     />
     <button class="header__search" type="button">
