@@ -1,9 +1,47 @@
 <template>
   <div id="app">
-    <Header
-      @updateUserInfo="updateUserInfo"
-      :infoUser="infoUser"
-    ></Header>
+    <header class="header">
+      <div class="container">
+        <div class="header__wrapper">
+          <div class="header__left">
+            <button class="header__burger-btn">
+              <img
+                class="burger__img"
+                src="@/assets/images/burger.svg"
+                alt="menu"
+              />
+            </button>
+            <a class="header__logo" href="#">
+              <img
+                class="header__logo-img"
+                src="@/assets/images/header_logo.svg"
+                alt="Kolesa Logo"
+              />
+            </a>
+          <Search :search-value="search" @setSearch="setSearch"></Search>
+          </div>
+          <HeaderProfile
+            :userInfo="{ name: username, score: score }"
+            @updateUserInfo="setUser"
+          ></HeaderProfile>
+          <form class="header__right-search">
+            <input
+              class="header__right-input"
+              type="text"
+              v-model="search"
+              placeholder="Поиск"
+            />
+            <button class="header__right-btn" type="button">
+              <img
+                class="header__right-img"
+                src="@/assets/images/search-icon.svg"
+                alt="Поиск"
+              />
+            </button>
+          </form>
+        </div>
+      </div>
+    </header>
     <main class="main">
       <div class="container">
         <div class="main__wrapper">
@@ -52,8 +90,8 @@ import Navbar from './components/Navbar.vue';
 import Card from './components/Card.vue';
 import Buttons from './components/Buttons.vue';
 import Footer from './components/Footer.vue';
-import Header from './components/Header.vue';
-
+import HeaderProfile from './components/HeaderProfile.vue';
+import Search from './components/Search.vue';
 
 export default {
   name: 'App',
@@ -64,7 +102,8 @@ export default {
     Buttons,
     Footer,
     Navbar,
-    Header,
+    HeaderProfile,
+    Search,
   },
   data() {
     return {
@@ -227,6 +266,7 @@ export default {
       isShowModal: false,
       search: 'Одежда D',
       modalData: {},
+      username: "",
       score: 500,
     }; 
   },
@@ -279,8 +319,9 @@ export default {
     changeActiveLink(link) {
       this.activeLink = link.value;
     },  
-    updateUserInfo(userInfo) {
-      this.infoUser = userInfo;
+    setUser(user) {
+      this.username = user.name;
+      this.score = user.score;
     },
     setScore(cost) { 
       this.closeModal();

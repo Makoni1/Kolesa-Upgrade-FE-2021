@@ -15,35 +15,26 @@
 </template>
 
 <script>
+import axios from "../axios.js";
+
 export default {
     name: 'HeaderProfile',
     data() {
         return {
-            userInfo: {},
+            name: "",
+            scores: 0,
         };
     },
     props: {
-        infoUser: Object,
-    },
-    methods: {
-        getUserInfo() {
-            fetch('https://api.json-generator.com/templates/7ZW3y5GAuIge/data', {
-                headers: {
-                    Authorization: 'Bearer rhhrmjvdvcv0ka4e6ouao9a1gj42fbjim5bcu60f',
-                },
-            })
-                .then((response) => response.json())
-                .then((data) => {
-                    this.userInfo = data;
-                    this.$emit('userInfo', this.userInfo);
-                })
-                .catch((err) => {
-                    console.log(err);
-                });
-        },
+        userInfo: Object,
     },
     created() {
-        this.getUserInfo();
+        axios.get("templates/7ZW3y5GAuIge/data").then((response) => {
+            this.name = response.data.name;
+            this.scores = response.data.score;
+
+            this.$emit("updateUserInfo",  {name: this.name, score: this.scores});
+        });
     },
 };
 </script>
