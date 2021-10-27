@@ -7,7 +7,7 @@
           <div class="images">
             <img
               class="images_element"
-              src="@/assets/images/product.jpg"
+              :src="data.mainImage"
               alt="футболка"
               width="330" height="330"
             />
@@ -26,13 +26,13 @@
             </h3>
             <div class="modal-wrapper__blocks scores">
               <div class="scores__left">
-                <div class="scores__left-title">{{ data.cost }} баллов</div>
+                <div class="scores__left-title">{{ data.price }} баллов</div>
                 <button class="scores__btn" type="button" @click="order(cost)">Заказать</button>
               </div>
               <div class="scores__right">
                 <div class="scores-content">
                   <p class="scores__title">Твой баланс:</p>
-                  <p class="scores__text">50 баллов</p>
+                  <p class="scores__text">{{ userScore }} баллов</p>
                 </div>
                 <div class="scores__bag">
                   <img class="bag" src="@/assets/images/bag.svg" />
@@ -70,8 +70,7 @@
             <div class="modal-wrapper__blocks">
               <h5 class="modal-wrapper__details">Детали:</h5>
               <p>
-                Брендированная толстовка от Qazaq Republic. Материал: Хлопок
-                80%, Вискоза 20%
+                {{data.description}}
               </p>
             </div>
             <div class="modal-wrapper__blocks">
@@ -95,16 +94,19 @@ export default {
   },
   methods: {
     closeModal() {
-      console.log('close in Modal');
-
       this.$emit('closeModal');
     },
     order() {
-  
       const result = this.data.cost * PERCENT;
-
       this.$emit('order', result);
-    }
+
+      if (this.userScore > this.data.price) {
+          this.$emit("order", this.data.price);
+          this.closeModal();
+      } else {
+          alert("Недостаточно средств!");
+      }
+    },
   },
 }
 </script>

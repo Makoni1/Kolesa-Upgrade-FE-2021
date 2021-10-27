@@ -75,6 +75,7 @@
     <Footer></Footer>
     <Modal 
       :data="modalData" 
+      :user-score="score"
       :is-open="isShowModal" 
       @closeModal="closeModal"
       @order="setScore"
@@ -264,10 +265,10 @@ export default {
       activeTab: 'all',
       activeLink: 'shop',
       isShowModal: false,
-      search: 'Одежда D',
+      search: "",
       modalData: {},
       username: "",
-      score: 500,
+      score: 0,
     }; 
   },
   computed: {
@@ -289,16 +290,9 @@ export default {
     return this.accessories;
   },
   },
-  watch: {
-    score(oldValue, newValue) {
-      console.log('newValue', newValue);
-      console.log('oldValue', oldValue);
-      this.showCost();
-    },
-  },
   mounted() {
     axios.get('templates/-_RLsEGjof6i/data')
-      .then ((response) =>{
+      .then ((response) => {
         console.log(response)
       });
   },
@@ -326,6 +320,7 @@ export default {
     setScore(cost) { 
       this.closeModal();
       this.score -= cost;
+      alert("Заказ оформлен");
     },
     setSearch(setSearch) {
       this.setSearch = setSearch;
