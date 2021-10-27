@@ -327,14 +327,11 @@ export default {
       this.closeModal();
       this.score -= cost;
     },
-    setSearch(e) {
-      this.search = e.target.value;
+    setSearch(setSearch) {
+      this.setSearch = setSearch;
     },
     showCost() {
       alert(this.score);
-    },
-    getFormatedText(sizes) {
-      return sizes && sizes.length ? `Размер ${String(sizes).replace(',', '')}` : '';
     },
   },
   created() {

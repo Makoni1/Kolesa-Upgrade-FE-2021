@@ -11,10 +11,15 @@
             <div class="card__title">
                 {{item.title}}
             </div>
-            <div class="card__misc">
-                <!-- {{
-                    getFormatedText(item.sizes)
-                }} -->
+            <div class="card__sizes">
+                <span v-if="item.sizes && item.sizes.length"
+                    >Размеры
+                    <span v-for="(size, index) in item.sizes" :key="index">
+                        {{ size }}
+                        <span v-if="index !== item.sizes.length - 1">/</span>
+                    </span>
+                </span>
+                <div v-else>no size information</div>
             </div>
             <button class="card__button" 
                 type="button"
