@@ -1,7 +1,7 @@
 <template>
     <div class="product__item card">
         <div class="card__image-wrap">
-            <img :src="item.img" :alt="item.alt" :id="item.id" width="330" height="330" />
+            <img :src="item.mainImage" alt="" :id="item.id"/>
             <span v-if="item.isNew" class="card__badge">New</span>
         </div>
         <div class="card__info">

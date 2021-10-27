@@ -19,7 +19,10 @@
             </a>
           <Search :search-value="search" @setSearch="setSearch"></Search>
           </div>
-          <HeaderProfile></HeaderProfile>
+          <HeaderProfile
+            @updateUserInfo="updateUserInfo"
+            :infoUser="infoUser"
+          ></HeaderProfile>
           <form class="header__right-search">
             <input
               class="header__right-input"
@@ -50,6 +53,13 @@ export default {
         Search,
         HeaderProfile,
     },
-  
-}
+    props: {
+        infoUser: Object,
+    },
+    methods: {
+        updateUserInfo(userInfo) {
+            this.$emit('updateUserInfo', userInfo);
+        },
+    },
+};
 </script>

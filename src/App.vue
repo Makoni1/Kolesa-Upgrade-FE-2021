@@ -1,6 +1,9 @@
 <template>
   <div id="app">
-    <Header></Header>
+    <Header
+      @updateUserInfo="updateUserInfo"
+      :infoUser="infoUser"
+    ></Header>
     <main class="main">
       <div class="container">
         <div class="main__wrapper">
@@ -32,12 +35,12 @@
       </div>
     </main>
     <Footer></Footer>
-    <modal 
+    <Modal 
       :data="modalData" 
       :is-open="isShowModal" 
       @closeModal="closeModal"
       @order="setScore"
-    ></modal>
+    ></Modal>
   </div>
 </template>
 
@@ -253,15 +256,11 @@ export default {
       this.showCost();
     },
   },
-  created() {
-    console.log(this.$refs.header);
-  },
   mounted() {
     axios.get('templates/-_RLsEGjof6i/data')
       .then ((response) =>{
         console.log(response)
       });
-    // console.log(this.$refs.header);
   },
   methods: {
     openCard(item) {
@@ -279,6 +278,9 @@ export default {
     },
     changeActiveLink(link) {
       this.activeLink = link.value;
+    },  
+    updateUserInfo(userInfo) {
+      this.infoUser = userInfo;
     },
     setScore(cost) { 
       this.closeModal();
@@ -293,6 +295,15 @@ export default {
     getFormatedText(sizes) {
       return sizes && sizes.length ? `Размер ${String(sizes).replace(',', '')}` : '';
     },
+  },
+  created() {
+    Promise.all([
+      axios.get("templates/-_RLsEGjof6i/data"),
+      axios.get("templates/q3OPxRyEcPvP/data"),
+    ]).then((response) => {
+        this.clothes = response[0].data;
+        this.accessories = response[1].data;
+    });
   },
 };
 </script>
