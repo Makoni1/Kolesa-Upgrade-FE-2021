@@ -1,10 +1,11 @@
 <template>
-  <form class="header__form">
+  <form class="header__form" @submit="noReloading">
     <input
-      type="text"
+      type="search"
       class="header__input" 
-      :value="searchValue" placeholder="Поиск"
-      @input="$emit('setSearch', $event)"
+      placeholder="Поиск"
+      v-model="searchValue"
+      @change="searchData"
     />
     <button class="header__search" type="button">
       <img
@@ -17,13 +18,19 @@
 </template>
 <script>
 export default {
-  props: {
-    searchValue: String,
-  },
+  name: "Search",
   data() {
     return {
-      search: '',
+      searchValue: "",
     };
   },
+  methods: {
+    searchData() {
+      this.$emit("searchData", this.searchValue);
+    },
+    noReloading(e) {
+      e.preventDefault();
+    },
+  }
 };
 </script>

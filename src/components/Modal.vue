@@ -1,5 +1,5 @@
 <template>
-    <div v-if='isOpen' class="modal-main-wrap js__modal">
+    <div v-if="isOpen" class="modal-main-wrap js__modal">
       <div @click="closeModal" class="overlay" />
       <div class="modal-window-wrap js__modal-window-wrap">
         <div class="modal-wrapper">
@@ -29,10 +29,13 @@
                 <div class="scores__left-title">{{ data.price }} баллов</div>
                 <button class="scores__btn" type="button" @click="order(cost)">Заказать</button>
               </div>
+              <p class="info__warning" v-if="isWarningShown">
+                Внимание! У Вас недостаточно баллов для покупки!
+              </p>
               <div class="scores__right">
                 <div class="scores-content">
                   <p class="scores__title">Твой баланс:</p>
-                  <p class="scores__text">{{ userScore }} баллов</p>
+                  <p class="scores__text">{{ user.score }} баллов</p>
                 </div>
                 <div class="scores__bag">
                   <img class="bag" src="@/assets/images/bag.svg" />
@@ -84,28 +87,26 @@
 </template>
 
 <script>
-const PERCENT = 1.12;
 
 export default {
   name: 'Modal',
   props: {
     isOpen: Boolean,
     data: Object,
+    user: Object,
   },
   methods: {
     closeModal() {
       this.$emit('closeModal');
     },
     order() {
-      const result = this.data.cost * PERCENT;
-      this.$emit('order', result);
-
-      if (this.userScore > this.data.price) {
-          this.$emit("order", this.data.price);
-          this.closeModal();
-      } else {
-          alert("Недостаточно средств!");
+      if (this.user.score < this.data.price) {
+          alert("Недостаточно баллов");
+          return;
       }
+      this.$emit('order', this.data.price) 
+      this.closeModal();
+
     },
   },
 }

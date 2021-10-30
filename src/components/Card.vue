@@ -1,7 +1,7 @@
 <template>
     <div class="product__item card">
         <div class="card__image-wrap">
-            <img :src="item.mainImage" alt="" :id="item.id" width='330' height='330'/>
+            <img :src="item.mainImage" alt="" width='330' height='330'/>
             <span v-if="item.isNew" class="card__badge">New</span>
         </div>
         <div class="card__info">
@@ -23,7 +23,6 @@
             </div>
             <button class="card__button" 
                 type="button"
-                :data-id="item.id"
                 @click="openCard(item)"
             >
                 Заказать
@@ -37,6 +36,10 @@ export default {
     name: 'Card',
     props: {
         item: Object,
+    },
+    item: {
+        type: Object,
+        required: true,
     },
     methods: {
         openCard(item) {

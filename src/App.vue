@@ -18,11 +18,13 @@
                 alt="Kolesa Logo"
               />
             </a>
-          <Search :search-value="search" @setSearch="setSearch"></Search>
+          <Search @searchData="setSearchValue"></Search>
           </div>
           <HeaderProfile
             :userInfo="{ name: username, score: score }"
             @updateUserInfo="setUser"
+            @sendUserInfo="sendUserInfo"
+            :user="user"
           ></HeaderProfile>
           <form class="header__right-search">
             <input
@@ -75,7 +77,7 @@
     <Footer></Footer>
     <Modal 
       :data="modalData" 
-      :user-score="score"
+      :user="user"
       :is-open="isShowModal" 
       @closeModal="closeModal"
       @order="setScore"
@@ -108,106 +110,8 @@ export default {
   },
   data() {
     return {
-      clothes:[
-        {
-          id: 0,
-          title: 'Классная футболка',
-          price: 5500,
-          isNew: true,
-          img: './assets/images/photo_tovara.jpg',
-          details: 'Черная удобная футболка',
-        },
-        {
-          id: 1,
-          title: 'Черная юбка',
-          price: 7000,
-          isNew: true,
-          img: './assets/images/skirt.jpeg',
-          details: 'Школьная черная юбка',
-        },
-        {
-          id: 2,
-          title: 'Красный купальник',
-          price: 8999,
-          isNew: false,
-          img: './assets/images/swimsuit.jpeg',
-          details: 'Школьная черная юбка',
-        },
-        {
-          id: 3,
-          title: 'Зеленое платье',
-          price: 6550,
-          isNew: false,
-          img: './assets/images/dress.jpeg',
-          details: 'Зеленое красивое платье',
-        },
-        {
-          id: 4,
-          title: 'Белая Кофта',
-          price: 7500,
-          isNew: false,
-          img: './assets/images/белая_кофта.jpg',
-          details: 'Белая хлопковая кофта',
-        },
-        {
-          id: 5,
-          title: 'Черная Кофта',
-          price: 7990,
-          isNew: false,
-          img: './assets/images/черная_кофта.jpg',
-          details: 'Черная хлопковая кофта',
-        },
-      ],
-      accessories:[
-        {
-          id: 6,
-          title: 'Ожерелье',
-          price: 699,
-          isNew: true,
-          img: './assets/images/bead.jpeg',
-          details: 'Красивое серебренное ожерелье',
-        },
-        {
-          id: 7,
-          title: 'Прочный зонтик',
-          price: 550,
-          isNew: true,
-          img: './assets/images/umbrella.jpeg',
-          details: 'Прочный зеленый зонтик',
-        },
-        {
-          id: 8,
-          title: 'Серый рюкзак',
-          price: 933,
-          isNew: false,
-          img: './assets/images/backpack.jpeg',
-          details: 'Серый красивый рюкзак',
-        },
-        {
-          id: 9,
-          title: 'Шапка',
-          price: 998,
-          isNew: false,
-          img: './assets/images/cap.jpg',
-          details: 'Супер модная шапка',
-        },
-        {
-          id: 10,
-          title: 'Бутылка',
-          price: 2000,
-          isNew: false,
-          img: './assets/images/бутылка.jpg',
-          details: 'Пластиковая Бутылка',
-        },
-        {
-          id: 11,
-          title: 'Синий рюкзак',
-          price: 3999,
-          isNew: false,
-          img: './assets/images/синий_рюкзак.jpg',
-          details: 'Синий прочный рюкзак',
-        },
-      ],
+      clothes:[],
+      accessories:[],
       tabs: [
         { name: 'Все товары', 
           value: 'all' 
@@ -257,6 +161,7 @@ export default {
           value: 'faq',
         },
       ],
+      user : {},
       cards: [
         { id: 1, title: 'Одежда A', description: 'lorem'},
         { id: 2, title: 'Одежда Б', description: 'Abay'},
@@ -265,7 +170,7 @@ export default {
       activeTab: 'all',
       activeLink: 'shop',
       isShowModal: false,
-      search: "",
+      searchValue: "",
       modalData: {},
       username: "",
       score: 0,
@@ -280,21 +185,20 @@ export default {
       .slice()
       .sort((item) => (item.isNew ? -1 : 1));
   },
+  sortedClothes() {
+    return this.clothes
+      .slice()
+      .sort((item) => (item.isNew ? -1 : 1));
+  },
   filterCategories() {
     if (this.activeTab === 'all') {
       return this.sortedProducts;
     }
     if (this.activeTab === 'clothes') {
-      return this.clothes;
+      return this.sortedClothes;
     }
     return this.accessories;
   },
-  },
-  mounted() {
-    axios.get('templates/-_RLsEGjof6i/data')
-      .then ((response) => {
-        console.log(response)
-      });
   },
   methods: {
     openCard(item) {
@@ -317,16 +221,15 @@ export default {
       this.username = user.name;
       this.score = user.score;
     },
-    setScore(cost) { 
-      this.closeModal();
-      this.score -= cost;
+    setScore(price) { 
+      this.user.score -= price;
       alert("Заказ оформлен");
     },
-    setSearch(setSearch) {
-      this.setSearch = setSearch;
+    sendUserInfo(userInfo) {
+      this.user = userInfo;
     },
-    showCost() {
-      alert(this.score);
+    setSearchValue(searchValue) {
+      this.searchValue = searchValue; 
     },
   },
   created() {
@@ -336,7 +239,9 @@ export default {
     ]).then((response) => {
         this.clothes = response[0].data;
         this.accessories = response[1].data;
-    });
+    }).catch((error) => {
+        console.log(error);
+    })
   },
 };
 </script>
