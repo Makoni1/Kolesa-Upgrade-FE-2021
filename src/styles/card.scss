@@ -1,9 +1,7 @@
 .card {
-    max-width: 330px;
-    width: 100%;
     min-height: 474px;
     position: relative;
-
+    
     &:hover {
         border-radius: 8px;
         box-shadow: 0 2px 10px rgba(28, 24, 25, 0.1);
@@ -15,6 +13,7 @@
 
     &__image-wrap {
         position: relative;
+        max-height: 330px;
     }
 
     &__badge {
@@ -62,7 +61,7 @@
         text-overflow: ellipsis;
     }
 
-    &__misc {
+    &__sizes {
         @include secondary-text;
 
         font-style: normal;
