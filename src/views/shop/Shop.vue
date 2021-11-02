@@ -19,14 +19,16 @@
         v-for="item in filterCategories"
         :key="item.id"
         :item="item"
+        @closeModal="closeModal"
         @openCard="openModal"
       ></Card>
     </div>
     <Modal
-      :data="data"
+      v-model="isShowModal"
       :isOpen="isShowModal"
       @closeModal="closeModal"
-      @order="setOrder"
+      :modal-data="modalData"
+      @order="setScore"
     ></Modal>
   </div>
 </template>
@@ -55,7 +57,7 @@ export default {
       ],
       isShowModal: false,
       activeTab: 'all',
-      data: {},
+      modalData: {},
     };
   },
   computed: {
@@ -87,12 +89,12 @@ export default {
     this.$store.dispatch('fetchShopData');
   },
   methods: {
-    openCard(item) {
+    openCard() {
       this.openModal();
-      this.modalData = item;
     },
-    openModal() {
+    openModal(item) {
       this.isShowModal = true;
+      this.modalData = item;
     },
     closeModal() {
       this.isShowModal = false;
@@ -103,7 +105,7 @@ export default {
     changeActiveLink(link) {
       this.activeLink = link.value;
     },
-    setOrder(cost) {
+    setScore(cost) {
       this.$store.dispatch('submitOrder', cost);
       alert('Заказ оформлен!');
     },
