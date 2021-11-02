@@ -35,7 +35,7 @@
               <div class="scores__right">
                 <div class="scores-content">
                   <p class="scores__title">Твой баланс:</p>
-                  <p class="scores__text">{{ user.score }} баллов</p>
+                  <p class="scores__text">{{ userData.score }} баллов</p>
                 </div>
                 <div class="scores__bag">
                   <img class="bag" src="@/assets/images/bag.svg" />
@@ -83,31 +83,41 @@
           </div>
         </div>
       </div>
-    </div>  
+    </div>
 </template>
 
 <script>
+import { mapState } from 'vuex';
 
 export default {
   name: 'Modal',
   props: {
-    isOpen: Boolean,
     data: Object,
-    user: Object,
+    isOpen: Boolean,
   },
+  computed: mapState({
+    userData: 'userData',
+  }),
   methods: {
     closeModal() {
       this.$emit('closeModal');
     },
+    // order() {
+    //   if (this.userData.score < this.data.price) {
+    //     // alert('Недостаточно баллов');
+    //     return;
+    //   }
+    //   this.$store.commit('order', this.data.price);
+    //   this.closeModal();
+    // },
     order() {
-      if (this.user.score < this.data.price) {
-          alert("Недостаточно баллов");
-          return;
+      if (this.userData.score > this.data.price) {
+        this.$emit('order', this.data.price);
+        this.closeModal();
+      } else {
+        alert('Недостаточно средств!');
       }
-      this.$emit('order', this.data.price) 
-      this.closeModal();
-
     },
   },
-}
+};
 </script>

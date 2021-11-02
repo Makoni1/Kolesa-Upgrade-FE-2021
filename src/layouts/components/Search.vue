@@ -2,7 +2,7 @@
   <form class="header__form" @submit="noReloading">
     <input
       type="search"
-      class="header__input" 
+      class="header__input"
       placeholder="Поиск"
       v-model="searchValue"
       @change="searchData"
@@ -18,19 +18,19 @@
 </template>
 <script>
 export default {
-  name: "Search",
+  name: 'Search',
   data() {
     return {
-      searchValue: "",
+      searchValue: '',
     };
   },
   methods: {
     searchData() {
-      this.$emit("searchData", this.searchValue);
+      this.$emit('searchData', this.searchValue);
     },
     noReloading(e) {
       e.preventDefault();
     },
-  }
+  },
 };
 </script>

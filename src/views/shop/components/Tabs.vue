@@ -14,16 +14,15 @@
 
 <script>
 export default {
-    name: 'Tabs',
-    props: {
-        tabs: Array,
-        activeTab: String,
+  name: 'Tabs',
+  props: {
+    tabs: Array,
+    activeTab: String,
+  },
+  methods: {
+    sortTabs(tab) {
+      this.$emit('sortTabs', tab);
     },
-    methods: {
-        sortTabs(tab) {
-            this.$emit('sortTabs', tab);
-        },
-    },
+  },
 };
 </script>
-

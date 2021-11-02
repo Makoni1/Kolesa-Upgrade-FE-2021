@@ -1,7 +1,7 @@
 <template>
-    <div class="product__item card">
+    <div class="product__item card" @click="openModal(item)">
         <div class="card__image-wrap">
-            <img :src="item.mainImage" alt="" width='330' height='330'/>
+            <img :src="item.mainImage" alt="" :id="item.id" width='330' height='330'/>
             <span v-if="item.isNew" class="card__badge">New</span>
         </div>
         <div class="card__info">
@@ -21,9 +21,9 @@
                 </span>
                 <div v-else>no size information</div>
             </div>
-            <button class="card__button" 
+            <button class="card__button"
                 type="button"
-                @click="openCard(item)"
+                @click="openModal(item)"
             >
                 Заказать
             </button>
@@ -33,21 +33,18 @@
 
 <script>
 export default {
-    name: 'Card',
-    props: {
-        item: Object,
+  name: 'Card',
+  props: {
+    item: Object,
+  },
+  item: {
+    type: Object,
+    required: true,
+  },
+  methods: {
+    openModal() {
+      this.$emit('openCard', this.item);
     },
-    item: {
-        type: Object,
-        required: true,
-    },
-    methods: {
-        openCard(item) {
-            console.log(item);
-            this.$emit('openCard', this.item);
-        },
-    },
+  },
 };
 </script>
-
-

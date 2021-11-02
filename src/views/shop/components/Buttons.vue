@@ -3,9 +3,13 @@
         <button type="button" class="questions__get-scores questions__item_take">
             Получить баллы
         </button>
-        <button type="button" class="questions__get-scores questions__item_how">
+        <router-link
+            to="/shop/how-to-get-scores"
+            class="questions__get-scores questions__item_how"
+            type="button"
+        >
             Как получить баллы
-        </button>
+        </router-link>
         <button type="button" class="questions__get-scores questions__item_gift">
             Подарить баллы
         </button>
@@ -14,7 +18,6 @@
 
 <script>
 export default {
-   name: 'Buttons',
+  name: 'Buttons',
 };
 </script>
-
