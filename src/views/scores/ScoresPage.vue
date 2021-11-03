@@ -3,14 +3,14 @@
     <div class="score__howto howto">
       <ul class="howto__list">
         <li class="howto__list-item">
-          <router-link class="howto__link" to="/shop"
-            >Kolesa Shop</router-link
-          >
+          <router-link class="howto__link" to="/shop">
+            Kolesa Shop
+          </router-link>
         </li>
         <li class="howto__list-item">
-          <router-link class="howto__link" to="/shop/how-to-get-scores"
-            >Как получить баллы</router-link
-          >
+          <router-link class="howto__link" to="/shop/how-to-get-scores">
+            Как получить баллы
+          </router-link>
         </li>
       </ul>
     </div>
