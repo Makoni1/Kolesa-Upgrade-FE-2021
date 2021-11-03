@@ -35,7 +35,7 @@ export default new Vuex.Store({
         commit('updateUserInfo', {
           name: response.data.name,
           score: response.data.score,
-          avatarUrl: response.data.avatarUrl,
+          avatarUrl: response.data?.avatarUrl,
         });
       });
     },
