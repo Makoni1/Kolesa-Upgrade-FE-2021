@@ -62,22 +62,20 @@ export default {
   },
   computed: {
     allGoods() {
-      return [...this.$store.state.clothes, ...this.$store.state.accessories];
-    },
-    sortedProducts() {
-      return this.allGoods.slice().sort((item) => (item.isNew ? -1 : 1));
-    },
-    sortedClothes() {
-      return this.$store.state.clothes.slice().sort((item) => (item.isNew ? -1 : 1));
+      return [...this.$store.state.clothes, ...this.$store.state.accessories].sort(
+        (a, b) => b.isNew - a.isNew,
+      );
     },
     filterCategories() {
-      if (this.activeTab === 'all') {
-        return this.sortedProducts;
+      if (this.activeTab === 'accessories') {
+        return [...this.$store.state.accessories].sort((item) => (item.isNew ? -1 : 1));
       }
       if (this.activeTab === 'clothes') {
-        return this.sortedClothes;
+        return [...this.$store.state.clothes].sort((item) => (item.isNew ? -1 : 1));
       }
-      return this.$store.state.accessories;
+      return [...this.$store.state.accessories, ...this.$store.state.clothes].sort(
+        (a, b) => b.isNew - a.isNew,
+      );
     },
   },
   ...mapState({
@@ -106,6 +104,5 @@ export default {
       this.activeLink = link.value;
     },
   },
-
 };
 </script>
