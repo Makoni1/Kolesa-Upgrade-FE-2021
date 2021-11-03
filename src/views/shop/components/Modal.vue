@@ -29,9 +29,6 @@
                 <div class="scores__left-title">{{ modalData.price }} баллов</div>
                 <button class="scores__btn" type="button" @click="order">Заказать</button>
               </div>
-              <p class="info__warning" v-if="isWarningShown">
-                Внимание! У Вас недостаточно баллов для покупки!
-              </p>
               <div class="scores__right">
                 <div class="scores-content">
                   <p class="scores__title">Твой баланс:</p>
@@ -106,7 +103,7 @@ export default {
   methods: {
     order() {
       if (this.score < this.modalData.price) {
-        this.isWarningShown = true;
+        alert('Недостаточно баллов');
         return;
       }
       this.$store.commit('updateUserBalance', this.modalData.price);
