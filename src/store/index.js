@@ -9,7 +9,7 @@ export default new Vuex.Store({
     name: 'Akmaral',
     userInfo: {
       name: '',
-      score: '',
+      score: 0,
       avatarUrl: '',
     },
     clothes: [],

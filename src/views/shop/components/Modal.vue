@@ -92,18 +92,13 @@ export default {
     modalData: Object,
     isOpen: Boolean,
   },
-  data() {
-    return {
-      isWarningShown: false,
-    };
-  },
   computed: mapState({
     score: (state) => state.userInfo.score,
   }),
   methods: {
     order() {
       if (this.score < this.modalData.price) {
-        alert('Недостаточно баллов');
+        alert('У вас недостаточно баллов');
         return;
       }
       this.$store.commit('updateUserBalance', this.modalData.price);

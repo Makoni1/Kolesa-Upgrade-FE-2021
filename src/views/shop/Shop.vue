@@ -105,10 +105,6 @@ export default {
     changeActiveLink(link) {
       this.activeLink = link.value;
     },
-    setScore(cost) {
-      this.$store.dispatch('submitOrder', cost);
-      alert('Заказ оформлен!');
-    },
   },
 
 };
