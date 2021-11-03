@@ -70,7 +70,7 @@
             <div class="modal-wrapper__blocks">
               <h5 class="modal-wrapper__details">Детали:</h5>
               <p>
-                {{modalData.description}}
+                {{ modalData.description }}
               </p>
             </div>
             <div class="modal-wrapper__blocks">
