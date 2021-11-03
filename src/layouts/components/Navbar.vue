@@ -5,14 +5,16 @@
         <li
           class="list__item"
           v-for="(item, index) in navLinks"
-          :key="index">
+          :key="index"
+        >
           <router-link
             class="list__link"
             active-class="list__link--active"
             :to="item.url"
             :exact="item.isExact"
-            >{{ item.label }}</router-link
           >
+            {{ item.label }}
+          </router-link>
         </li>
       </ul>
     </nav>
