@@ -33,9 +33,11 @@ export default new Vuex.Store({
     fetchUserInfo({ commit }) {
       axios.get('templates/7ZW3y5GAuIge/data').then((response) => {
         commit('updateUserInfo', {
-          name: response.data.name,
-          score: response.data.score,
+          name: response.data?.name,
+          score: response.data?.score,
           avatarUrl: response.data?.avatarUrl,
+        }).catch((error) => {
+          console.log(error);
         });
       });
     },

@@ -101,6 +101,7 @@ export default {
         alert('У вас недостаточно баллов');
         return;
       }
+
       this.$store.commit('updateUserBalance', this.modalData.price);
       this.$emit('closeModal');
     },
