@@ -25,9 +25,9 @@
     </div>
     <Modal
       v-model="isShowModal"
+      :modal-data="modalData"
       :isOpen="isShowModal"
       @closeModal="closeModal"
-      :modal-data="modalData"
       @order="setScore"
     ></Modal>
   </div>
