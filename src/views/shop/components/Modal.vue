@@ -1,13 +1,13 @@
 <template>
     <div v-if="isOpen" class="modal-main-wrap js__modal">
-      <div @click="closeModal" class="overlay" />
+      <div @click="$emit('closeModal')" class="overlay" />
       <div class="modal-window-wrap js__modal-window-wrap">
         <div class="modal-wrapper">
-          <button @click="closeModal" class="modal-wrapper__btn js__close-button" />
+          <button @click="$emit('closeModal')" class="modal-wrapper__btn js__close-button" />
           <div class="images">
             <img
               class="images_element"
-              :src="data.mainImage"
+              :src="modalData.mainImage"
               alt="футболка"
               width="330" height="330"
             />
@@ -22,20 +22,17 @@
           </div>
           <div class="modal-wrapper__desc">
             <h3 class="modal-wrapper__title">
-             {{ data.title }}
+             {{ modalData.title }}
             </h3>
             <div class="modal-wrapper__blocks scores">
               <div class="scores__left">
-                <div class="scores__left-title">{{ data.price }} баллов</div>
-                <button class="scores__btn" type="button" @click="order(cost)">Заказать</button>
+                <div class="scores__left-title">{{ modalData.price }} баллов</div>
+                <button class="scores__btn" type="button" @click="order">Заказать</button>
               </div>
-              <p class="info__warning" v-if="isWarningShown">
-                Внимание! У Вас недостаточно баллов для покупки!
-              </p>
               <div class="scores__right">
                 <div class="scores-content">
                   <p class="scores__title">Твой баланс:</p>
-                  <p class="scores__text">{{ user.score }} баллов</p>
+                  <p class="scores__text">{{ score }} баллов</p>
                 </div>
                 <div class="scores__bag">
                   <img class="bag" src="@/assets/images/bag.svg" />
@@ -73,7 +70,7 @@
             <div class="modal-wrapper__blocks">
               <h5 class="modal-wrapper__details">Детали:</h5>
               <p>
-                {{data.description}}
+                {{ modalData.description }}
               </p>
             </div>
             <div class="modal-wrapper__blocks">
@@ -83,31 +80,31 @@
           </div>
         </div>
       </div>
-    </div>  
+    </div>
 </template>
 
 <script>
+import { mapState } from 'vuex';
 
 export default {
   name: 'Modal',
   props: {
+    modalData: Object,
     isOpen: Boolean,
-    data: Object,
-    user: Object,
   },
+  computed: mapState({
+    score: (state) => state.userInfo.score,
+  }),
   methods: {
-    closeModal() {
+    order() {
+      if (this.score < this.modalData.price) {
+        alert('У вас недостаточно баллов');
+        return;
+      }
+
+      this.$store.commit('updateUserBalance', this.modalData.price);
       this.$emit('closeModal');
     },
-    order() {
-      if (this.user.score < this.data.price) {
-          alert("Недостаточно баллов");
-          return;
-      }
-      this.$emit('order', this.data.price) 
-      this.closeModal();
-
-    },
   },
-}
+};
 </script>
