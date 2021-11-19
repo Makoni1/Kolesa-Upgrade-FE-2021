@@ -181,8 +181,10 @@ const renderCategory = (category) => {
     });
 };
 
-renderCategory(all);
+sortEachCategory([all, clothes, accessories]); // В самом начале сортирую все категории
+renderCategory(all); // Затем рендериться категория "Все товары" по умолчанию
 
+// В зависимости от нажатой кнопки, рендериться опредленная категория
 categoryButtons
     .forEach((button) => {
         button
